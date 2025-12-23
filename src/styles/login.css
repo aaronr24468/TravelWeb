@@ -1,0 +1,247 @@
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+
+    .mainBox {
+        width: 80%;
+        aspect-ratio: 13/7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        box-shadow: 0 0 10px black;
+        border-radius: 10px;
+
+        .imgC {
+            width: 50%;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px 0 0 10px;
+            }
+
+            @media (width <=850px) {
+                display: none;
+            }
+        }
+
+        .infoC {
+            width: 50%;
+            height: 100%;
+            box-shadow: 0 0 10px black;
+            border-radius: 0 10px 10px 0;
+
+            .imagePage {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column;
+
+                img {
+                    width: 25%;
+                }
+
+                .inputData {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 0 150px 0 150px;
+                    gap: 10px;
+
+                    .inputD {
+                        width: 100%;
+                        height: 40px;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.247);
+                        transition: border-bottom 0.2s ease;
+
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            padding: 0 10px 0 10px;
+                            border-radius: 12px;
+                            border: none;
+
+                            font-size: 1.1rem;
+                            outline: none;
+
+                            @media (width <=860px) {
+                                text-align: center;
+                            }
+                        }
+
+
+                        &:hover {
+                            border-bottom: 1px solid rgb(0, 0, 0);
+                        }
+
+                        @media (width <=1000px) {
+                            height: 30px;
+                        }
+                    }
+
+                    .inputPass {
+                        position: relative;
+
+                        .showData {
+                            width: 30px;
+                            position: absolute;
+                            right: 5px;
+                            top: 5px;
+                            cursor: pointer;
+                            opacity: 0.2;
+                            transition: opacity 0.5s ease;
+
+                            &:hover {
+                                opacity: 1;
+                            }
+
+                            @media (width <=1000px) {
+                                top: 1px;
+                                width: 25px;
+                            }
+
+
+                        }
+
+
+                    }
+
+                    .submitBtn {
+                        width: 150px;
+                        aspect-ratio: 3;
+                        background: none;
+                        border: none;
+                        box-shadow: 0 0 3px black;
+                        border-radius: 10px;
+                        font-size: 1.2rem;
+                        opacity: 0.4;
+                        margin-top: 20px;
+                        cursor: pointer;
+                        transition: opacity 0.2s linear;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        &:active {
+                            transform: scale(0.98);
+                        }
+
+                        @media (width <=1000px) {
+                            width: 130px;
+                        }
+
+                    }
+
+                    @media (width <=1600px) {
+                        padding: 0 50px 0 50px;
+                    }
+
+                    @media (width <=1000px) {
+                        padding: 0 10px 0 10px;
+                    }
+
+                    @media (width <=860px) {
+                        padding: 0 50px 0 50px;
+                    }
+
+                    @media (width <=600px) {
+                        padding: 0 20px 0 20px;
+                    }
+
+                }
+
+                .registerPassword {
+                    width: 100%;
+                    height: 200px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    padding: 0 50px 20px 50px;
+
+                    .registerS {
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+
+                        .line {
+                            width: 20%;
+                            height: 1px;
+                            background: rgba(0, 0, 0, 0.37);
+                        }
+
+                        a {
+                            color: black;
+                            text-decoration: none;
+                            opacity: 0.3;
+                            transition: opacity 0.2s linear;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: blue;
+                                opacity: 1;
+                            }
+                        }
+
+
+                    }
+
+                    .forgotPassword {
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        
+
+                        a {
+                            text-decoration: none;
+                            opacity: 0.5;
+                            color: rgb(0, 0, 0);
+                            text-shadow: 0 0 1px black;
+                            transition: opacity 0.2s linear;
+
+                            &:hover{
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            @media (width <=850px) {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        @media (width <=1200px) {
+            aspect-ratio: 10/7;
+        }
+
+        @media (width <=850px) {
+            aspect-ratio: 10/10;
+        }
+
+    }
+}

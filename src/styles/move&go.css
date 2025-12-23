@@ -1,0 +1,20 @@
+.mainContainerContent {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    
+    .header-Move-And-Go {
+        width: 100vw;
+        height: 7vh;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.308);
+        position: sticky;
+        top: 0;
+        background: white;
+    }
+
+    .mainContainer-Move-And-Go {
+        width: 100vw;
+        height: 93vh;
+    }
+}

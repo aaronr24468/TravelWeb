@@ -1,0 +1,161 @@
+.mainRegisterContainer {
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets//viajes.png'), no-repeat;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .formReg {
+        width: 500px;
+        height: 100%;
+        border-radius: 10px;
+        padding: 40px 0 40px 0;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 0 10px black;
+
+
+        .TitleRe {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 50px;
+
+            .WelcomeT {
+                width: 80%;
+                height: auto;
+            }
+
+            .getDataInput {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0 100px 0 100px;
+                gap: 40px;
+
+                .inputItem {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 50px;
+
+                    label {
+                        color: white;
+                    }
+
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        outline: none;
+                        padding: 0 30px 0 10px;
+                        text-align: center;
+                    }
+                }
+
+                .inputPass {
+                    position: relative;
+
+                    .showRP {
+                        position: absolute;
+                        right: 5px;
+                        top: 21px;
+                        width: 25px;
+                        cursor: pointer;
+                        opacity: 0.2;
+                        transition: opacity 0.2s linear;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .inputPhoto {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    input {
+                        display: none;
+                    }
+
+                    label {
+                        width: 100px;
+                        height: 100px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        position: relative;
+
+
+                        .imgSelect {
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                            object-fit: contain;
+                            border-radius: 10px;
+                        }
+
+                        &::after {
+                            content: 'Select image';
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            border-radius: 10px;
+                            background: rgba(255, 255, 255, 0.301);
+                            opacity: 0;
+                            transition: opacity 0.2s linear;
+                            cursor: pointer;
+                        }
+
+                        &:hover::after{
+                            opacity: 1;
+                        }
+
+                    }
+                }
+
+                .btnTrigger{
+                    width: auto;
+                    height: auto;
+
+                    button{
+                        width: 150px;
+                        aspect-ratio: 3;
+                        background: none;
+                        color: white;
+                        border: none;
+                        box-shadow: 0 0 5px white;
+                        border-radius: 10px;
+                        cursor: pointer;
+
+                        &:hover{
+                            box-shadow: inset 0 0 3px white,
+                                        0 0 5px white;
+                        }
+
+                        &:active{
+                            box-shadow: inset 0 0 5px white;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+}

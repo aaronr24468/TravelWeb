@@ -19,6 +19,7 @@ export const LoginComponent = ({ }) => {
         try {
             const token = await fetch('http://localhost:8080/login', {
                 method: 'post',
+                credentials: 'include',
                 headers: {
                     "Content-Type": "Application/json"
                 },
@@ -26,7 +27,6 @@ export const LoginComponent = ({ }) => {
             }).then((res) => res.json());
             console.log(token)
             if (token.status === 'S') {
-                localStorage.setItem('travelToken', token.token);
                 localStorage.setItem('travelUsername', token.username);
                 localStorage.setItem('travelImage', token.image)
                 navigate('/move&go')
@@ -41,9 +41,9 @@ export const LoginComponent = ({ }) => {
         const token = localStorage.getItem('travelToken');
         const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
             method: 'get',
+            credentials: "include",
             headers: {
                 "Content-Type": "Application/json",
-                "Authorization": `bearer ${token}`
             }
         }).then((res) => res.json());
         console.log(response)

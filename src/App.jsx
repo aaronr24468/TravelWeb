@@ -12,12 +12,11 @@ function App() {
   const navigate = useNavigate();
 
   const checkAccount = useCallback(async () => {
-    const token = localStorage.getItem('travelToken');
     const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
       method: 'get',
+      credentials: 'include',
       headers: {
         "Content-Type": "Application/json",
-        "Authorization": `bearer ${token}`
       }
     }).then((res) => res.json());
     console.log(response)
@@ -25,7 +24,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    //localStorage.clear();
     checkAccount();
   }, [])
 

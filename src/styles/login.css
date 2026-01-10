@@ -127,13 +127,14 @@
                         box-shadow: 0 0 3px black;
                         border-radius: 10px;
                         font-size: 1.2rem;
-                        opacity: 0.4;
+                        opacity: 0.8;
                         margin-top: 20px;
                         cursor: pointer;
                         transition: opacity 0.2s linear;
 
                         &:hover {
                             opacity: 1;
+                            transform: scale(1.02);
                         }
 
                         &:active {

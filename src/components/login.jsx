@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router';
 export const LoginComponent = ({ }) => {
     const navigate = useNavigate();
 
-    const getUserData = async (event) => {
+    const getUserData = async(event) => {
         event.preventDefault();
         const data = {
             username: event.target[0].value,
@@ -17,7 +17,7 @@ export const LoginComponent = ({ }) => {
         }
 
         try {
-            const token = await fetch('http://localhost:8080/login', {
+            const login = await fetch('http://localhost:8080/login', {
                 method: 'post',
                 credentials: 'include',
                 headers: {
@@ -25,10 +25,8 @@ export const LoginComponent = ({ }) => {
                 },
                 body: JSON.stringify(data)
             }).then((res) => res.json());
-            console.log(token)
-            if (token.status === 'S') {
-                localStorage.setItem('travelUsername', token.username);
-                localStorage.setItem('travelImage', token.image)
+            console.log(login)
+            if (login.login) {
                 navigate('/move&go')
             }
 
@@ -38,16 +36,15 @@ export const LoginComponent = ({ }) => {
     }
 
     const checkAccount = useCallback(async () => {
-        const token = localStorage.getItem('travelToken');
         const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
             method: 'get',
             credentials: "include",
             headers: {
-                "Content-Type": "Application/json",
+                "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
         console.log(response)
-        response === 'S' ? navigate('/move&go') : '';
+        response.login? navigate('/move&go') : '';
     }, [])
 
     useEffect(() => {

@@ -25,7 +25,7 @@ export const LoginComponent = ({ }) => {
                 },
                 body: JSON.stringify(data)
             }).then((res) => res.json());
-            console.log(login)
+            //console.log(login)
             if (login.login) {
                 navigate('/move&go')
             }
@@ -43,7 +43,7 @@ export const LoginComponent = ({ }) => {
                 "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
-        console.log(response)
+        //console.log(response)
         response.login? navigate('/move&go') : '';
     }, [])
 

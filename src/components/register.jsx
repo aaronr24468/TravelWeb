@@ -62,7 +62,7 @@ export const RegisterComponent = ({ }) => {
 
             } else if(res === "S") {
                 alert('Se realizo el registro con exito sin imagen')
-                navigate('/login')
+                navigate('/')
             }else if(res === 'M'){
                 alert('El username que quiere registrar, ya esta registrado')
             }else{

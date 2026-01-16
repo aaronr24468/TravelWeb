@@ -2,6 +2,7 @@ import { useCallback, useEffect } from 'react'
 import '../styles/generateTrip.css'
 import { useNavigate } from 'react-router'
 import { HeaderComponent } from '../reusableComponent/header/HeaderComponent';
+import selectCar from '../assets/selectCar.svg'
 
 export const GenerateTrip = ({}) =>{
     const navigate = useNavigate();
@@ -28,7 +29,23 @@ export const GenerateTrip = ({}) =>{
                     <HeaderComponent />
                 </header>
                 <main className='Trip-form'>
+                    <section className='topSec secContent'>
+                        <div className="imageVehicle">
+                            <button className='selectVehicule'>
+                                <img className='selectV' src={selectCar} alt="" />
+                            </button>
+                        </div>
+                        <div className="userInformation">
+                            <form className='formDriver' action="">
+                                <div className="mainInfo boxInfo">
 
+                                </div>
+                                <div className="destination_images boxInfo">
+
+                                </div>
+                            </form>
+                        </div>
+                    </section>
                 </main>
             </main>
         </>

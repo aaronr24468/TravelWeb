@@ -44,7 +44,8 @@ export const HeaderComponent = ({}) => {
                 "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
-        driverR.driver ? (navigate('/move&go/tripG')) : (alert('no tienes permisos para generar viajes'));
+        console.log(driverR)
+        driverR.message != "Forbidden" ? (navigate('/move&go/tripG')) : (alert('no tienes permisos para generar viajes'));
     }
 
     const logOut = async () => {

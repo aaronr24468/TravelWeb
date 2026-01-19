@@ -1,15 +1,34 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import '../styles/generateTrip.css'
 import { useNavigate } from 'react-router'
 import { HeaderComponent } from '../reusableComponent/header/HeaderComponent';
 import selectCar from '../assets/selectCar.svg'
 
 export const GenerateTrip = ({ }) => {
+    const [dataC, setDataC] = useState({})
     const navigate = useNavigate();
 
     const getInfoTrip = (event) =>{
         event.preventDefault();
         console.log(event.target)
+    }
+
+    const dataDriver = async() =>{
+        const driverD = await fetch('http://localhost:8080/v1/travel/formularioData',{
+            method: 'get',
+            credentials: 'include',
+            headers:{
+                "Content_Type":"Application/json"
+            }
+        }).then((res) => res.json());
+        
+        if(!driverD.message === "Error de servidor"){
+
+        }else{
+            console.log(driverD)
+            setDataC(driverD)
+        }
+        
     }
 
     const checkRol = useCallback(async () => {
@@ -20,7 +39,7 @@ export const GenerateTrip = ({ }) => {
                 "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
-        rolC.driver ? "" : navigate('/move&go');
+        rolC.driver ? dataDriver() : navigate('/move&go');
     }, [])
 
     useEffect(() => {
@@ -53,7 +72,7 @@ export const GenerateTrip = ({ }) => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15l-5-5h10z" /></svg>
                                 </div>
                                 <div className="showCar">
-                                    <img className='carS imgBoxC' src="" alt="" />
+                                    <img className='carS imgBoxC' src={null} alt="" />
                                 </div>
                             </section>
 
@@ -65,14 +84,15 @@ export const GenerateTrip = ({ }) => {
                                 <div className="inputCollect">
                                     <input className='collectPoint' type="text" placeholder='Escribe la dirrecion del punto de partida' />
                                 </div>
+
                                 <div className="reference_Origin_Destination">
                                     <div className="imageReference">
                                         <div className="tripCImg">
                                             <h3>Origen</h3>
                                             <label htmlFor="Origen">Selecciona imagen</label>
-                                            <input id="Origen" type="file" st />
+                                            <input id="Origen" type="file" />
                                         </div>
-                                        <img className='referencePhoto' src="" alt="" />
+                                        <img className='referencePhoto' src={null} alt="" />
                                         <div className="contaiDescript">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M11.906 1.994a8 8 0 0 1 8.09 8.421a8 8 0 0 1-1.297 3.957a1 1 0 0 1-.133.204l-.108.129q-.268.365-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18 18 0 0 1-.309-.38l-.133-.163a1 1 0 0 1-.13-.202a7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0a3 3 0 0 1 5.999 0" clipRule="evenodd" /></svg>
                                             <input className='inputD' type="text" placeholder='Ciudad de salida' />
@@ -82,21 +102,22 @@ export const GenerateTrip = ({ }) => {
                                         <div className="tripCImg">
                                             <h3>Destino</h3>
                                             <label htmlFor="Destino">Selecciona imagen</label>
-                                            <input id="Destino" type="file" st />
+                                            <input id="Destino" type="file" />
                                         </div>
-                                        <img className='referencePhoto' />
+                                        <img className='referencePhoto' src={null}/>
                                         <div className="contaiDescript">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M11.906 1.994a8 8 0 0 1 8.09 8.421a8 8 0 0 1-1.297 3.957a1 1 0 0 1-.133.204l-.108.129q-.268.365-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18 18 0 0 1-.309-.38l-.133-.163a1 1 0 0 1-.13-.202a7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0a3 3 0 0 1 5.999 0" clipRule="evenodd" /></svg>
                                             <input className='inputD' type="text" placeholder='Ciudad de destino' />
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div className="dataPassengers">
                                     <div className="quantity">
                                         <label>Cantidad de pasajeros*</label>
                                         <div className="inputPassengerC">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2S7.5 4.019 7.5 6.5M20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1z" /></svg>
-                                            <input className='inputQuantity' type="text" value="5" />
+                                            <span className='inputQuantity'>{dataC.seats}</span>
                                         </div>
                                     </div>
                                     <div className="dateTime">
@@ -118,7 +139,7 @@ export const GenerateTrip = ({ }) => {
 
                             <div className="showCarSelected">
                                 <div className="imgCarS">
-                                    <img className='carS' src="" alt="" />
+                                    <img className='carS' src={null} alt="" />
                                 </div>
                                 <div className="infoCar">
                                     <span className='model'>Car model</span>

@@ -19,6 +19,8 @@ Este proyecto forma parte de un sistema full stack, enfocado en buenas práctica
 
 - Vite
 
+  
+
 🔐 Autenticación
 
 - Inicio de sesión mediante JWT.
@@ -26,6 +28,8 @@ Este proyecto forma parte de un sistema full stack, enfocado en buenas práctica
 - Manejo de sesión usando cookies httpOnly para mayor seguridad.
 
 - Protección de rutas según el rol del usuario (conductor / pasajero).
+
+  
 
 🚘 Registro y selección de vehículos
 
@@ -36,6 +40,8 @@ Este proyecto forma parte de un sistema full stack, enfocado en buenas práctica
 - Selección de vehículo al momento de crear un viaje.
 
 - Vista previa del vehículo seleccionado con imagen y características.
+
+  
 
 🧾 Creación de viajes
 
@@ -65,6 +71,20 @@ Este proyecto forma parte de un sistema full stack, enfocado en buenas práctica
 
 - Integración con backend que utiliza Cloudinary para almacenamiento.
 
+  
+
+🧱 Estructura
+
+- services/ → solo fetch / axios
+
+- hooks/ → lógica + estado (NO async en el hook)
+  
+- pages/ → solo UI + hooks
+
+- components/ → UI reutilizable
+
+  
+
 🧠 Enfoque del proyecto
 
 Este frontend fue desarrollado con enfoque en:
@@ -78,6 +98,8 @@ Este frontend fue desarrollado con enfoque en:
 - Experiencia de usuario clara e intuitiva.
 
 - Integración con un backend seguro que valida roles y ownership.
+
+  
 
 📌 Estado del proyecto
 

@@ -1,8 +1,8 @@
-import '../styles/register.css';
-import eye from '../assets/eye.svg';
-import selectUser from '../assets/selectPhotoU.svg'
+import './register.css';
+import eye from '../../assets/eye.svg';
+import selectUser from '../../assets/selectPhotoU.svg'
 import { useState } from 'react';
-import { checkData } from '../functions/checkRegisterData';
+import { checkData } from '../../functions/checkRegisterData';
 import { useNavigate } from 'react-router';
 
 export const RegisterComponent = ({ }) => {

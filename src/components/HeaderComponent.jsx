@@ -1,6 +1,6 @@
-import './headerC.css'
-import logoMandG2 from '../../assets/logo sin fondo.png' //conseguir la imagen de diferente size para que quede bien 
-import tripLogo from '../../assets/trip.svg';
+import '../styles/HeaderC.css'
+import logoMandG2 from '../assets/logo sin fondo.png' //conseguir la imagen de diferente size para que quede bien 
+import tripLogo from '../assets/trip.svg';
 import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 

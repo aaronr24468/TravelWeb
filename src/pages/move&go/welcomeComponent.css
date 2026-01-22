@@ -8,7 +8,7 @@
     .welcomeImage {
         width: 100%;
         height: 700px;
-        background: url(../assets/test2.png), no-repeat;
+        background: url(../../assets/test2.png), no-repeat;
         background-size: cover;
         background-position: 10% 20%;
     }

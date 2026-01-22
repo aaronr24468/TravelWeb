@@ -1,0 +1,615 @@
+.createTrip {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    font-family: 'local';
+    background: rgba(6, 142, 221, 0.096);
+
+    .Header-create-trip {
+        width: 100vw;
+        height: 7vh;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.308);
+        position: sticky;
+        top: 0;
+        background: rgb(255, 255, 255);
+    }
+
+    .Trip-form {
+        width: 100vw;
+        height: 93vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: -10000;
+        padding: 10px 10% 0 10%;
+        gap: 10px;
+
+        .createTrip {
+            width: 800px;
+            background: none;
+            height: auto;
+        }
+
+        .containerData {
+            width: 800px;
+            height: auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+
+
+
+            .formTrip {
+                width: 70%;
+                height: auto;
+                background: white;
+                padding: 15px 20px 15px 20px;
+                box-shadow: 0 0 5px rgb(0, 0, 0);
+                border-radius: 10px;
+
+                .vehicleSelector {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+                    padding-bottom: 10px;
+
+                    .selectV {
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 0.9rem;
+
+                        a {
+                            text-decoration: none;
+                            color: rgb(0, 68, 255);
+                        }
+
+
+                    }
+
+                    .inputSelected {
+                        width: 100%;
+                        height: 30px;
+                        border: 2px solid rgb(207, 207, 207);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 10px;
+                        border-radius: 5px;
+                        padding: 0 0 0 5px;
+                        position: relative;
+
+                        label {
+                            user-select: none;
+                        }
+
+                        .selectCarInput {
+                            cursor: pointer;
+
+                            &:hover {
+                                box-shadow: 0 0 5px black;
+                                border-radius: 5px;
+                            }
+                        }
+
+                        .carsOptions {
+                            position: absolute;
+                            left: 0;
+                            top: 100%;
+                            width: 100%;
+                            height: auto;
+                            z-index: 100000;
+                            cursor: default;
+                            display: none;
+                            box-shadow: 0 0 3px black;
+                            background: white;
+                            border-radius: 0 0 5px 5px;
+
+                            .carList {
+                                width: 100%;
+                                height: auto;
+                                display: flex;
+                                flex-wrap: wrap;
+                                flex-basis: 100px;
+                                padding: 10px;
+                                gap: 5px;
+
+                                .itemCar {
+                                    width: 100px;
+                                    aspect-ratio: 1;
+                                    list-style-type: none;
+
+                                    img {
+                                        width: 100%;
+                                        border-radius: 10px;
+                                        cursor: pointer;
+                                        transition: transform 0.2s linear;
+
+                                        &:hover {
+                                            transform: scale(1.05);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .showCars {
+                            display: block;
+                        }
+                    }
+
+                    .showCar {
+                        margin-top: 10px;
+                        width: 100%;
+                        height: 200px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        border: 2px solid rgb(207, 207, 207);
+                        border-radius: 5px;
+                        padding: 5px;
+
+                        .imgBoxC {
+                            width: 50%;
+                            height: 100%;
+                            border: 2px solid rgba(207, 207, 207, 0);
+                            border-radius: 5px;
+                        }
+
+                    }
+                }
+
+                .origenDestination {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+                    padding: 10px 0 10px 0;
+
+                    .collectP {
+                        width: 100%;
+                        margin-top: 10px;
+                    }
+
+                    .inputCollect {
+                        width: 100%;
+                        height: 30px;
+                        margin-top: 5px;
+                        border: none;
+
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            padding: 0 5px 0 5px;
+                            font-size: 1rem;
+                            font-family: 'local';
+                            border: 2px solid rgb(207, 207, 207);
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .reference_Origin_Destination {
+                        width: 100%;
+                        height: 170px;
+                        display: flex;
+                        flex-direction: row;
+                        margin-top: 10px;
+                        gap: 10px;
+
+                        .imageReference {
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            .tripCImg {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                position: relative;
+
+                                label {
+                                    font-size: 0.8rem;
+                                    color: rgb(0, 68, 255);
+                                    cursor: pointer;
+                                }
+
+                                .formUploadImage {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 100%;
+                                    width: 100%;
+                                    height: 150px;
+                                    box-shadow: 0 0 5px black;
+                                    border-radius: 10px;
+                                    background: white;
+                                    padding: 5px;
+                                    display: none;
+                                    flex-direction: column;
+
+                                    .writeCity {
+                                        width: 100%;
+                                        display: flex;
+                                        align-items: center;
+
+                                        .ciudadImg {
+                                            width: 100%;
+                                            height: 20px;
+                                            border-radius: 5px;
+                                            border: 1px solid rgba(0, 0, 0, 0.281);
+                                            padding: 0 5px 0 5px;
+                                        }
+
+                                        a {
+                                            width: 20px;
+                                            height: 20px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                        }
+
+                                    }
+
+
+
+                                    .imgContainerSelect {
+                                        width: 100%;
+                                        height: 100px;
+                                        position: relative;
+
+                                        .clickSelector {
+                                            width: 100%;
+                                            height: 100%;
+                                            position: absolute;
+                                            top: 0;
+                                        }
+
+                                        .selectImg {
+                                            display: none;
+                                        }
+
+                                        .selectImg2 {
+                                            display: none;
+                                        }
+
+                                        .imgSelected {
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            border: 1px solid black;
+                                        }
+                                    }
+
+                                    .saveOriginImage {
+                                        width: 100%;
+                                        height: auto;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        background: rgba(128, 128, 128, 0.158);
+                                        color: black;
+                                        border-radius: 0 0 5px 5px;
+
+                                        &:hover {
+                                            transform: scale(1.02);
+                                        }
+
+                                        &:active {
+                                            transform: scale(.98);
+                                        }
+                                    }
+
+                                    .saveDestinationImage {
+                                        width: 100%;
+                                        height: auto;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        background: rgba(128, 128, 128, 0.158);
+                                        color: black;
+                                        border-radius: 0 0 5px 5px;
+
+                                        &:hover {
+                                            transform: scale(1.02);
+                                        }
+
+                                        &:active {
+                                            transform: scale(.98);
+                                        }
+                                    }
+
+                                }
+                            }
+
+                            .imgContainer {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                .referencePhoto {
+                                    width: 100%;
+                                    height: 120px;
+                                    border-radius: 5px;
+                                    border: 2px solid rgb(207, 207, 207);
+                                    cursor: pointer;
+                                }
+
+                                dialog{
+                                    margin: 0 auto;
+                                    align-self: center;
+                                    width: 700px;
+                                    background: none;
+                                    border: none;
+                                    height: 400px;
+                                    box-shadow: 0 0 5px black;
+                                    background: white;
+                                    border-radius: 10px;
+                                    padding: 20px;
+                                    position: relative;
+                                    overflow: hidden;
+
+                                    .closeModal{
+                                        position: absolute;
+                                        right: 0;
+                                        top: 0;
+                                        width: 20px;
+                                        aspect-ratio: 1;
+                                        border-radius: 0 10px 0 10px ;
+                                        background: none;
+                                        border: none;
+                                        box-shadow: 1px 0 5px black;
+                                        text-align: center;
+                                        cursor: pointer;
+
+                                        &:hover{
+                                            transform: scale(1.1);
+                                        }
+                                        &:active{
+                                            transform: scale(1);
+                                        }
+                                    }
+
+                                    .Lista_Images{
+                                        width: 100%;
+                                        height: 100%;
+                                        display: flex;
+                                        flex-direction: row;
+                                        flex-wrap: wrap;
+                                        flex-basis: 150px;
+                                        gap: 10px;
+
+                                        .itemList{
+                                            width: 150px;
+                                            height: 150px;
+                                            list-style-type: none;
+                                            box-shadow: 0 0 5px black;
+                                            border-radius: 10px;
+                                            transition: transform 0.1s linear;
+                                            
+                                            img{
+                                                width: 100%;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                cursor: pointer;
+                                                border-radius: 10px;
+                                            }
+                                            span{
+                                                font-size: 0.8rem;
+                                                width: 100%;
+                                                display: flex;
+                                                justify-content: center;
+                                            }
+
+                                            &:hover{
+                                                transform: scale(1.05);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            .contaiDescript {
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+
+                                .inputD {
+                                    width: 100%;
+                                    border: 2px solid rgb(207, 207, 207);
+                                    border-radius: 5px;
+                                    outline: none;
+                                    padding: 0 5px 0 5px;
+                                    font-family: 'local';
+                                }
+                            }
+                        }
+                    }
+
+                    .dataPassengers {
+                        width: 100%;
+                        height: auto;
+                        margin-top: 10px;
+
+                        .quantity {
+                            width: 100%;
+                            height: auto;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 5px;
+
+                            .inputPassengerC {
+                                width: 50%;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                margin-top: 2px;
+                                border-radius: 5px;
+                                border: 2px solid rgb(207, 207, 207);
+                                user-select: none;
+
+                                .inputQuantity {
+                                    padding: 0 5px 0 5px;
+                                    font-size: 0.9rem;
+                                    border: none;
+                                    outline: none;
+                                    user-select: none;
+                                }
+                            }
+
+                            .priceTrip{
+                                width: 50%;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                border-radius: 5px;
+                                margin-top: 2px;
+                                border: 2px solid rgb(207, 207, 207);
+
+                                input{
+                                    width: 100%;
+                                    height: 100%;
+                                    border: nono;
+                                    padding: 0 5px 0 5px;
+                                }
+                            }
+                        }
+
+                        .dateTime {
+                            width: 100%;
+                            height: auto;
+                            display: flex;
+                            flex-direction: column;
+                            margin-top: 10px;
+
+                            .dateTInput {
+                                width: 100%;
+                                height: 30px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                .inputSvg {
+                                    width: 100%;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border: 2px solid rgb(207, 207, 207);
+                                    border-radius: 5px;
+
+                                    input {
+                                        width: 100%;
+                                        height: 100%;
+                                        border: none;
+                                        outline: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .summaryTrip {
+                width: 300px;
+                height: fit-content;
+                box-shadow: 0 0 5px black;
+                padding: 5px 20px 5px 20px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background: white;
+
+                .showCarSelected {
+                    width: 100%;
+                    height: fit-content;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    border-top: 1px solid rgba(0, 0, 0, 0.137);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+                    padding: 10px;
+
+                    .imgCarS {
+                        width: 100px;
+                        aspect-ratio: 10/7;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+
+                        .carS {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                            border: 1px solid rgba(0, 0, 0, 0);
+                        }
+
+                    }
+
+                    .infoCar {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        gap: 2px;
+
+                        .model {
+                            font-size: 1rem;
+                        }
+
+                        .placas {
+                            font-size: 0.8rem;
+                        }
+
+                        .color {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+
+                .infoTrip {
+                    width: 100%;
+                    height: fit-content;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 0 0 10px 0;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+                }
+
+                .programarViaje {
+                    width: 100%;
+                    height: fit-content;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .programarV {
+                        width: 80%;
+                        aspect-ratio: 9/2;
+                        background: rgb(48, 99, 236);
+                        border-radius: 10px;
+                        border: none;
+                        color: white;
+                        text-shadow: 0 0 3px black;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

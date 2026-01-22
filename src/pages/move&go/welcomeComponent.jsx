@@ -1,10 +1,10 @@
-import '../styles/welcomeComponent.css';
-import carImage from '../assets/LandscapeXtrail.png'
-import carImage2 from '../assets/testBack.jpg'
-import carImage3 from '../assets/test2.png'
-import packages from '../assets/package.svg'
-import van from '../assets/van.svg'
-import groceries from '../assets/groceries.svg'
+import './welcomeComponent.css';
+import carImage from '../../assets/LandscapeXtrail.png'
+import carImage2 from '../../assets/testBack.jpg'
+import carImage3 from '../../assets/test2.png'
+import packages from '../../assets/package.svg'
+import van from '../../assets/van.svg'
+import groceries from '../../assets/groceries.svg'
 
 export const WelcomeComponent = ({ }) => {
 

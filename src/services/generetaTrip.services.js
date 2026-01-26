@@ -22,39 +22,60 @@ export const ListImagCity = async () => {
     return response.json();
 }
 
-export const saveImageCity = async (event, TImageO, TImageD, city, city2) => {
-        const clase = event.target.className
-        try {
-            if (clase === "saveOriginImage") {
-                const cityD = city
-                console.log("primero")
-                if (cityD.length != 0 && TImageO != null) {
-                    const formData = new FormData();
-                    formData.append('image', TImageO.dataImage);
-                    const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
-                        method: 'post',
-                        credentials: 'include',
-                        body: formData
-                    }).then((res) => res.json());
-                    console.log(response.message)
-                    response.message === "Success" ? "" : "";
-                }
-            } else {
-                const cityD = city2
-                console.log("segundo")
-                if (cityD.length != 0 && TImageD != null) {
-                    const formData = new FormData();
-                    formData.append('image', TImageD.dataImage);
-                    const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
-                        method: 'post',
-                        credentials: 'include',
-                        body: formData
-                    }).then((res) => res.json());
-                    response.message === "Success" ? "" : "";
-                }
+export const saveImageCity = async (clase, TImageO, TImageD, city, city2) => {
+    try {
+        if (clase === "saveOriginImage") {
+            const cityD = city
+            if (cityD.length != 0 && TImageO != null) {
+                const formData = new FormData();
+                formData.append('image', TImageO.dataImage);
+                const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
+                    method: 'post',
+                    credentials: 'include',
+                    body: formData
+                }).then((res) => res.json());
+                console.log(response.message)
+                response.message === "Success" ? "" : "";
             }
-        } catch (error) {
-
+        } else {
+            const cityD = city2
+            if (cityD.length != 0 && TImageD != null) {
+                const formData = new FormData();
+                formData.append('image', TImageD.dataImage);
+                const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
+                    method: 'post',
+                    credentials: 'include',
+                    body: formData
+                }).then((res) => res.json());
+                response.message === "Success" ? "" : "";
+            }
         }
+    } catch (error) {
 
     }
+
+}
+
+export const generateT = async (dataTrip) => {
+
+    const tripResponse = await fetch(`${API_ROUTE}/v1/travel/setTrip`, {
+        method: 'post',
+        credentials: 'include',
+        headers: {
+            "Content-Type": "Application/json"
+        },
+        body: JSON.stringify(dataTrip)
+    })
+    return(tripResponse.json());
+}
+
+export const ListCity = async() =>{
+    const imgCity = await fetch(`${API_ROUTE}/v1/travel/getCityImages`,{
+        method:"get",
+        credentials: 'include',
+        headers:{
+            "Content-Type": "Application/json"
+        }
+    })
+    return(imgCity.json());  
+}

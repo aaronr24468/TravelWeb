@@ -3,13 +3,14 @@ import loginPhoto from '../../assets/LoginPhoto.jpg'
 import logoMandG from '../../assets/logoMove&Go.png'
 import logoMandG2 from '../../assets/logo sin fondo.png'
 import eye from '../../assets/eye.svg'
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/login/useAuth';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router';
 
 export const LoginComponent = ({ }) => {
     const refPassword = useRef(null)
     const{login, loading, error} = useAuth();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     const handleSubmit = (event) =>{

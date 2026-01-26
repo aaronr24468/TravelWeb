@@ -1,4 +1,4 @@
-import { saveImageCity } from "../services/generetaTrip.services"
+import { saveImageCity } from "../../services/generetaTrip.services"
 import { useState, useRef } from "react"
 
 
@@ -33,13 +33,14 @@ export const useUploadImage = () => {
         })
     }
 
-    const saveImage = async(event) =>{ //creamos este metodo el cual mandaremos en el return para tener acceso a el mediante customeHooks y accionarlo con el boton
-            try {
-                const res = await saveImageCity(event, TImageO, TImageD,city,city2)
-            } catch (error) {
-                
-            }
+    const saveImage = async (event) => { //creamos este metodo el cual mandaremos en el return para tener acceso a el mediante customeHooks y accionarlo con el boton
+        try {
+            const clase = event.target.className
+            const res = await saveImageCity(clase, TImageO, TImageD, city, city2)
+        } catch (error) {
+
         }
+    }
 
     return {
         tripImageOrigin,

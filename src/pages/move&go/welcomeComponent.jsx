@@ -5,8 +5,10 @@ import carImage3 from '../../assets/test2.png'
 import packages from '../../assets/package.svg'
 import van from '../../assets/van.svg'
 import groceries from '../../assets/groceries.svg'
+import { useNavigate } from 'react-router';
 
 export const WelcomeComponent = ({ }) => {
+    const navigate = useNavigate();
 
     return (
         <>
@@ -16,7 +18,7 @@ export const WelcomeComponent = ({ }) => {
                     <div className="travel-Dialogo">
                         <h1>Viaje cómodo con nosotros</h1>
                         <p>Transporte de pasajero, paquetería y despensas</p>
-                        <button className='Travel-Reservar-Viaje'>Reservar ahora</button>
+                        <button className='Travel-Reservar-Viaje' onClick={() => navigate('/move&go/showTrips')}>Reservar ahora</button>
                     </div>
                     <div className="infoSection">
                         <div className="travel-container-info">

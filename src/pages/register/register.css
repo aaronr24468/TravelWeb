@@ -1,7 +1,7 @@
 .mainRegisterContainer {
     width: 100vw;
     height: 100vh;
-    background: url('../assets//viajes.png'), no-repeat;
+    background: url('../../assets/viajes.png'), no-repeat;
     background-size: cover;
     padding: 20px;
     display: flex;

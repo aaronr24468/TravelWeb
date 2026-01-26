@@ -10,7 +10,7 @@ export const RegisterComponent = ({ }) => {
     const [photoRegister, setPhotoRegister] = useState(null)
     const [flag, setFlag] = useState(false)
     const navigate = useNavigate();
-    
+
 
     const getImage = (event) => {
         const dataPhoto = document.getElementById('photoSelector').files[0];
@@ -34,44 +34,38 @@ export const RegisterComponent = ({ }) => {
             image: '',
         }
 
-        const resCheck = checkData(data);
 
-        if (resCheck === "Full") {
+        const res = await fetch('http://localhost:8080/register', {
+            method: 'put',
+            headers: {
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify(data)
+        }).then((res) => res.json());
+        console.log(res)
 
-            const res = await fetch('http://localhost:8080/register', {
-                method: 'put',
-                headers: {
-                    "Content-Type": "Application/json"
-                },
-                body: JSON.stringify(data)
-            }).then((res) => res.json());
+        if (res.ok && flag === true) {
+            const formData = new FormData;
+            formData.append('image', photoRegister)
+            console.log(res)
 
-            if (res === 'S' && flag === true) {
-                const formData = new FormData;
-                formData.append('image', photoRegister)
-                console.log(formData)
+            setTimeout(async () => {
+                const result = await fetch(`http://localhost:8080/register/setImage/${data.username}`, {
+                    method: 'post',
+                    body: formData
+                }).then((res) => res.json())
+                result.ok ? (alert('Se realizo el registro con exito y la imagen tambien'), navigate('/')) : (alert('Error al guardar la imagen'));
+            }, 100)
 
-                setTimeout(async () => {
-                    const result = await fetch(`http://localhost:8080/register/setImage/${data.username}`, {
-                        method: 'post',
-                        body: formData
-                    }).then((res) => res.json())
-
-                    result === "S" ? (alert('Se realizo el registro con exito y la imagen tambien'), navigate('/login')) : (alert('Error al guardar la imagen'));
-                }, 100)
-
-            } else if(res === "S") {
-                alert('Se realizo el registro con exito sin imagen')
-                navigate('/')
-            }else if(res === 'M'){
-                alert('El username que quiere registrar, ya esta registrado')
-            }else{
-                alert('Error al registrar usuario')
-            }
-
+        } else if (res.ok) {
+            alert('Se realizo el registro con exito sin imagen')
+            navigate('/')
+        } else if (!res.ok) {
+            alert('El username que quiere registrar, ya esta registrado')
         } else {
-            alert('Falta alguna casilla por rellenar')
+            console.log(res.message)
         }
+
     }
 
     return (

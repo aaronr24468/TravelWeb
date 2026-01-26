@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route, useNavigate } from 'react-router'
 import { LoginComponent } from './pages/login/login'
@@ -8,6 +5,7 @@ import { useEffect, useCallback } from 'react'
 import { RegisterComponent } from './pages/register/register'
 import { MainComponent } from './pages/move&go/move&go'
 import { GenerateTrip } from './pages/generateTrips/generateTrip'
+import { ListTrips } from './pages/tripList/tripShowList'
 
 function App() {
   // const navigate = useNavigate();
@@ -34,6 +32,7 @@ function App() {
         <Route path='/move&go' element={<MainComponent />}/>
         <Route path='/register' element={<RegisterComponent />}/>
         <Route path='/move&go/tripG' element={<GenerateTrip />}/>
+        <Route path='/move&go/showTrips' element={<ListTrips />}/>
       </Routes>
     </>
   )

@@ -24,12 +24,12 @@ export const HeaderComponent = ({}) => {
                 }
             }).then((res) => res.json());
             //console.log(userData)
-            userData.rol === "driver" || userData.rol === "Admin" ? (document.getElementById('viajeG').style.display = "flex") : (document.getElementById('viajeG').style.display = "none");
+            userData.message.rol === "driver" || userData.message.rol === "Admin" ? (document.getElementById('viajeG').style.display = "flex") : (document.getElementById('viajeG').style.display = "none");
             if (userData.image === "") {
                 userData.image = profileImage;
                 setInfo(userData)
             }
-            setInfo(userData)
+            setInfo(userData.message)
         } catch (e) {
 
         }
@@ -44,7 +44,7 @@ export const HeaderComponent = ({}) => {
                 "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
-        console.log(driverR)
+        //console.log(driverR)
         driverR.message != "Forbidden" ? (navigate('/move&go/tripG')) : (alert('no tienes permisos para generar viajes'));
     }
 
@@ -73,7 +73,7 @@ export const HeaderComponent = ({}) => {
                 <nav className='navHeaderComponent'>
                     <ul className='listaNavHeader'>
                         <li><a className='travel-options' href="http://localhost:5173/move&go">Inicio</a></li>
-                        <li><a className='travel-options' href="#">Viajes</a></li>
+                        <li><a className='travel-options' href="/move&go/showTrips">Viajes</a></li>
                         <li><a className='travel-options' href="#">Tarifas</a></li>
                         <li><a className='travel-profile' onClick={showUserOptions} href="#"><img src={userInfo.image} alt="" /></a></li>
                     </ul>

@@ -1,7 +1,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { loginRequest, checkAccountRequest } from "../services/auth.services"; //importamos los servicios HTTP
+import { loginRequest, checkAccountRequest } from "../../services/auth.services"; //importamos los servicios HTTP
 
 export const useAuth = () =>{
     const navigate = useNavigate();
@@ -12,10 +12,15 @@ export const useAuth = () =>{
         try {
             setLoading(true);
             setError(null)
+            
             const response = await loginRequest(data);
-            if(response.login){
+
+            if(response.ok){
                 navigate("/move&go")
+            }else{
+                setError(response.message)
             }
+            
         } catch (error) {
             setError("Error al iniciar sesión")
         }finally{

@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register'
 import { MainComponent } from './pages/move&go/move&go'
 import { GenerateTrip } from './pages/generateTrips/generateTrip'
 import { ListTrips } from './pages/tripList/tripShowList'
+import { TripReservation } from './pages/tripReservation/tripReservation'
 
 function App() {
   // const navigate = useNavigate();
@@ -33,6 +34,7 @@ function App() {
         <Route path='/register' element={<RegisterComponent />}/>
         <Route path='/move&go/tripG' element={<GenerateTrip />}/>
         <Route path='/move&go/showTrips' element={<ListTrips />}/>
+        <Route path='/move&go/showTrips/trips/:idTrip' element={<TripReservation />}/>
       </Routes>
     </>
   )

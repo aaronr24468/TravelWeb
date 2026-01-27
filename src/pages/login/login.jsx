@@ -4,18 +4,17 @@ import logoMandG from '../../assets/logoMove&Go.png'
 import logoMandG2 from '../../assets/logo sin fondo.png'
 import eye from '../../assets/eye.svg'
 import { useAuth } from '../../hooks/login/useAuth';
-import { useRef } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 export const LoginComponent = ({ }) => {
     const refPassword = useRef(null)
-    const{login, loading, error} = useAuth();
+    const { login, loading, error } = useAuth();
     const navigate = useNavigate();
 
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const inputD = event.target
         const data = {
             username: event.target.username.value,
             password: event.target.password.value
@@ -23,6 +22,21 @@ export const LoginComponent = ({ }) => {
         console.log(data)
         login(data);
     }
+
+    const checkAccount = useCallback(async () => {
+        const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
+            method: 'get',
+            credentials: 'include',
+            headers: {
+                "Content-Type": "Application/json",
+            }
+        }).then((res) => res.json());
+        response.ok ? navigate('/move&go') : '';
+    }, [])
+
+    useEffect(() => {
+        checkAccount();
+    }, [checkAccount])
 
 
     return (
@@ -49,11 +63,11 @@ export const LoginComponent = ({ }) => {
                             <form onSubmit={handleSubmit} className='inputData' method="post">
 
                                 <div className='inputD'>
-                                    <input type="text" placeholder='Username' name='username'/>
+                                    <input type="text" placeholder='Username' name='username' />
                                 </div>
 
                                 <div className='inputD inputPass'>
-                                    <input id='passwordD' type="password" placeholder='Password' ref={refPassword} name='password'/>
+                                    <input id='passwordD' type="password" placeholder='Password' ref={refPassword} name='password' />
                                     <img onClick={() => { refPassword.current.type === "password" ? (refPassword.current.type = "text") : (document.getElementById('passwordD').type = "password") }} className='showData' src={eye} alt="" />
                                 </div>
 
@@ -62,7 +76,7 @@ export const LoginComponent = ({ }) => {
                             </form>
 
                             <div className="registerPassword">
-                                
+
                                 <section className='registerS'>
                                     <div className="line"></div>
                                     <a onClick={() => navigate('/register')}>Register</a>

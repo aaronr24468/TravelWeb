@@ -95,6 +95,9 @@
                         border-radius: 5px;
                         cursor: pointer;
                         transition: transform 0.1s linear;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
 
                         &:hover{
                             transform: scale(1.05);

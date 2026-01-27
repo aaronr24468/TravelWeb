@@ -1,77 +1,18 @@
 import './register.css';
 import eye from '../../assets/eye.svg';
-import selectUser from '../../assets/selectPhotoU.svg'
+
 import { useState } from 'react';
 import { checkData } from '../../functions/checkRegisterData';
 import { useNavigate } from 'react-router';
+import { useRegisterUser } from '../../hooks/register/useRegisterUser.mjs';
 
 export const RegisterComponent = ({ }) => {
-    const [userPhoto, setUserP] = useState(selectUser)
-    const [photoRegister, setPhotoRegister] = useState(null)
-    const [flag, setFlag] = useState(false)
-    const navigate = useNavigate();
-
-
-    const getImage = (event) => {
-        const dataPhoto = document.getElementById('photoSelector').files[0];
-        const imgCodified = URL.createObjectURL(dataPhoto); //creamos un url con la info de la url, la cual es temporal
-        setUserP(imgCodified);
-        setPhotoRegister(dataPhoto)
-        setFlag(true)
-    }
-
-    const registerUser = async (event) => {
-        event.preventDefault();
-
-
-        const data = {
-            name: event.target[0].value,
-            lastname: event.target[1].value,
-            age: event.target[2].value,
-            username: event.target[3].value,
-            password: event.target[4].value,
-            phone: event.target[5].value,
-            image: '',
-        }
-
-
-        const res = await fetch('http://localhost:8080/register', {
-            method: 'put',
-            headers: {
-                "Content-Type": "Application/json"
-            },
-            body: JSON.stringify(data)
-        }).then((res) => res.json());
-        console.log(res)
-
-        if (res.ok && flag === true) {
-            const formData = new FormData;
-            formData.append('image', photoRegister)
-            console.log(res)
-
-            setTimeout(async () => {
-                const result = await fetch(`http://localhost:8080/register/setImage/${data.username}`, {
-                    method: 'post',
-                    body: formData
-                }).then((res) => res.json())
-                result.ok ? (alert('Se realizo el registro con exito y la imagen tambien'), navigate('/')) : (alert('Error al guardar la imagen'));
-            }, 100)
-
-        } else if (res.ok) {
-            alert('Se realizo el registro con exito sin imagen')
-            navigate('/')
-        } else if (!res.ok) {
-            alert('El username que quiere registrar, ya esta registrado')
-        } else {
-            console.log(res.message)
-        }
-
-    }
+    const hookRegister = useRegisterUser();
 
     return (
         <>
             <div className="mainRegisterContainer">
-                <form onSubmit={registerUser} className='formReg' method="post">
+                <form onSubmit={hookRegister.registerUser} ref={hookRegister.form} className='formReg' method="post">
                     <div className="TitleRe">
                         <div className="WelcomeT">
                             <h2>Registrate gratis</h2>
@@ -80,32 +21,32 @@ export const RegisterComponent = ({ }) => {
                         <div className="getDataInput">
                             <div className="inputItem">
                                 <label htmlFor="">Nombre</label>
-                                <input type="text" />
+                                <input type="text" name='name'/>
                             </div>
                             <div className="inputItem">
                                 <label htmlFor="">Apellido</label>
-                                <input type="text" />
+                                <input type="text" name='lastname'/>
                             </div>
                             <div className="inputItem">
                                 <label htmlFor="">Edad</label>
-                                <input type="text" />
+                                <input type="text" name='age'/>
                             </div>
                             <div className="inputItem">
                                 <label htmlFor="">Username</label>
-                                <input type="text" />
+                                <input type="text" name='username'/>
                             </div>
                             <div className="inputItem inputPass">
                                 <label htmlFor="">Password</label>
-                                <input id='registerPassword' type="password" />
+                                <input id='registerPassword' type="password" name='password'/>
                                 <img onClick={() => { document.getElementById('registerPassword').type === "password" ? (document.getElementById('registerPassword').type = "text") : (document.getElementById('registerPassword').type = "password") }} className='showRP' src={eye} alt="" />
                             </div>
                             <div className="inputItem">
                                 <label htmlFor="">Telefono</label>
-                                <input type="text" />
+                                <input type="text" name='phone'/>
                             </div>
-                            <div onChange={getImage} className="inputItem inputPhoto">
-                                <label onChange={getImage} htmlFor="photoSelector"><img onChange={getImage} className='imgSelect' src={userPhoto} alt="" /></label>
-                                <input type="file" id='photoSelector' />
+                            <div onChange={hookRegister.getImage} className="inputItem inputPhoto">
+                                <label onChange={hookRegister.getImage} htmlFor="photoSelector"><img onChange={hookRegister.getImage} className='imgSelect' src={hookRegister.tempURL} alt="" /></label>
+                                <input type="file" id='photoSelector' ref={hookRegister.photoRef} name='image'/>
                             </div>
                             <div className="btnTrigger">
                                 <button type='submit'>Registrar</button>

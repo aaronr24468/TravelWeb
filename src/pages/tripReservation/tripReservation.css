@@ -1,0 +1,277 @@
+.headerTripSelected {
+    width: 100vw;
+    height: 7vh;
+    background: white;
+    box-shadow: 0 0 5px black;
+    position: fixed;
+    top: 0;
+}
+
+.mainTripInformation {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'local';
+
+    .informationTrip {
+        width: 70%;
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+
+
+        .imgDestination {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            user-select: none;
+            
+
+            .imgContainer {
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                    box-shadow: 0 0 5px black;
+                }
+            }
+
+            .destinationData {
+                width: 100%;
+                height: fit-content;
+                background: rgba(128, 128, 128, 0.521);
+                position: absolute;
+                left: 0;
+                bottom: 15px;
+                padding: 0 0 0 50px;
+                display: flex;
+                align-items: center;
+                font-size: 2rem;
+                color: white;
+                text-shadow: 0 0 5px black;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    width: 30px;
+                }
+            }
+        }
+
+        .dateTime {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 500;
+        }
+
+        .driverInfo {
+            width: 100%;
+            height: 200px;
+            box-shadow: 0 0 5px black;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 20px;
+
+            .imgDriver {
+                height: 100%;
+                width: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+
+                img {
+                    width: 70%;
+                    height: 90%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+
+            .dataDriver {
+                width: fit-content;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 5px;
+
+                .infoD {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .nameDriver{
+                        font-weight: 500;
+                        font-size: 1.5rem;
+                    }
+                    .age{
+                        font-weight: 500;
+                    }
+
+                    .review {
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+
+                        img {
+                            cursor: pointer;
+                            width: 30px;
+                        }
+                    }
+                }
+            }
+
+            .dataCar {
+                width: fit-content;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row-reverse;
+                gap: 10px;
+
+                .imgCar{
+                    width: 200px;
+                    height: 100%;
+                    padding: 5px;
+
+                    .carPhoto{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 20px;
+                    }
+                }
+
+                .infoCar{
+                    width: fit-content;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    span{
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                    }
+                }
+
+            }
+        }
+
+        .detailsTrip{
+            width: 100%;
+            height: fit-content;
+            box-shadow: 0 0 5px black;
+            border-radius: 20px;
+            padding: 10px;
+
+            .detailsTripTitle{
+                padding: 0 0 10px 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+
+                .titlePrice{
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                }
+            }
+            .priceTrip{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+                padding: 10px 0 0 0;
+                gap: 20px;
+
+                .imgPrice{
+                    width: auto;
+                    height: auto;
+
+                    .imgTotal{
+                        width: 50px;
+                    }
+                }
+                .total{
+                    width: auto;
+                    height: 100%;
+                    display: flex;
+                    gap: 5px;
+                    display: flex;
+                    align-items: center;
+
+                    .priceTitle{
+                        font-size: 0.9rem;
+                    }
+                    .priceTotal{
+                        font-size: 1.1rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .totalSeats{
+                width: 100%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .imageSeats{
+                    width: auto;
+                    height: auto;
+
+                    .seatsImage{
+                        width: 60px;
+                    }
+                }
+                .seatsAvailable{
+                    width: auto;
+                    height: auto;
+                }
+            }
+
+            .reservation{
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 0 0 0;
+
+                .seatReservation{
+                    width: 20%;
+                    aspect-ratio: 9/1.5;
+                    color: white;
+                    text-shadow: 0 0 5px black;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    background: linear-gradient(90deg,rgba(0, 183, 255, 1) 0%, rgba(87, 182, 199, 1) 50%, rgba(83, 237, 219, 1) 100%);
+                    transition: transform 0.1s linear;
+                    
+                    &:hover{
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+}

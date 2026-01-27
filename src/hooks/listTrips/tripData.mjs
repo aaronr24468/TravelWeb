@@ -32,5 +32,5 @@ export const useTripList = () =>{
         loadTrips();
     }, [loadTrips])
 
-    return{data, error, loading}
+    return{data, error, loading, navigate}
 }

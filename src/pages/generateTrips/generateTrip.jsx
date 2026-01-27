@@ -25,12 +25,24 @@ export const GenerateTrip = ({ }) => {
                 "Content-Type": "Application/json"
             }
         }).then((res) => res.json());
-        rolC.driver ? "" : "";
-    }, [navigate])
+        rolC.driver ? "" : navigate("/move&go");
+    }, [])
+
+    const checkAccount = useCallback(async () => {
+      const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
+        method: 'get',
+        credentials: 'include',
+        headers: {
+          "Content-Type": "Application/json",
+        }
+      }).then((res) => res.json());
+      response.ok ? '' : navigate('/');
+    }, [])
 
     useEffect(() => {
+        checkAccount();
         checkRol();
-    }, []);
+    }, [checkAccount,checkRol]);
 
     return (
         <>

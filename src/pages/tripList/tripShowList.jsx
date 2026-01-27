@@ -2,7 +2,8 @@ import './tripShowList.css';
 import { HeaderComponent } from '../../components/HeaderComponent';
 import { useTripList } from '../../hooks/listTrips/tripData.mjs';
 export const ListTrips = ({ }) => {
-    const { data, error, loading } = useTripList();
+    const { data, error, loading, navigate } = useTripList();
+
     return (
         <>
             <header className='headShowTrips'>
@@ -13,7 +14,6 @@ export const ListTrips = ({ }) => {
                     {data.map((element) => {
                         return (
                             <li className='itemList' key={element.id}>
-                                <input className='idTrip' type="text" value={element.id}/>
                                 <section className="containerCityImg">
                                     <img src={element.city_image} alt="" />
                                 </section>
@@ -37,7 +37,7 @@ export const ListTrips = ({ }) => {
                                     </div>
                                     <div className="priceButton">
                                         <span className='priceData'>${element.price}</span>
-                                        <button className='checkTrip'>Ver viaje</button>
+                                        <a onClick={() => navigate(`/move&go/showTrips/trips/${element.id}`)} className='checkTrip'>Ver viaje</a>
                                     </div>
                                 </section>
                             </li>

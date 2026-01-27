@@ -10,7 +10,7 @@ export const VehicleSelector = ({ carsOptionsRef, setSelectCar, selectCar, cars,
             <div className="selectV">
                 <label htmlFor="">Seleccionar Vehiculo*</label>
                 <div className="selectOptions">
-                    <button onClick={() => refCityModal.showModal()} className="selectCity">Seleccionar ciudad</button>
+                    <a onClick={() => refCityModal.showModal()} className="selectCity">Seleccionar Origen</a>
                     <a href="#">Registrar Vehiculo</a>
                 </div>
 

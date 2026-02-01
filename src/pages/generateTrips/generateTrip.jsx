@@ -4,18 +4,16 @@ import { useNavigate } from 'react-router'
 import { HeaderComponent } from '../../components/HeaderComponent';
 import selectCar from '../../assets/selectCar.svg'
 import { useGenerateTripData } from '../../hooks/registerTrip/useGenerateTripData';
-import { useUploadImage } from '../../hooks/registerTrip/uploadImages';
 import { VehicleSelector } from './vehicleSelector';
 import { StartingPoint } from './startingPoint';
 
 export const GenerateTrip = ({ }) => {
     const tripCars = useGenerateTripData();
-    const tripInfo = useUploadImage();
 
     const carsOptionsRef = useRef(null)
-    
+
     const navigate = useNavigate();
-    
+
 
     const checkRol = useCallback(async () => {
         const rolC = await fetch('http://localhost:8080/v1/travel/verifyRol', {
@@ -29,20 +27,20 @@ export const GenerateTrip = ({ }) => {
     }, [])
 
     const checkAccount = useCallback(async () => {
-      const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
-        method: 'get',
-        credentials: 'include',
-        headers: {
-          "Content-Type": "Application/json",
-        }
-      }).then((res) => res.json());
-      response.ok ? '' : navigate('/');
+        const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
+            method: 'get',
+            credentials: 'include',
+            headers: {
+                "Content-Type": "Application/json",
+            }
+        }).then((res) => res.json());
+        response.ok ? '' : navigate('/');
     }, [])
 
     useEffect(() => {
         checkAccount();
         checkRol();
-    }, [checkAccount,checkRol]);
+    }, [checkAccount, checkRol]);
 
     return (
         <>
@@ -63,16 +61,11 @@ export const GenerateTrip = ({ }) => {
                         <form className="formTrip" id='formTrip' onSubmit={tripCars.getInfoTrip} >
 
                             <section className='vehicleSelector'>
-                                <VehicleSelector carsOptionsRef={carsOptionsRef} {...tripCars}/>
+                                <VehicleSelector carsOptionsRef={carsOptionsRef} {...tripCars} />
                             </section>
 
                             <section className='origenDestination'>
-                                <StartingPoint {...tripInfo} {...tripCars}/>
-
-{/* data passengers ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-
-                                
-
+                                <StartingPoint {...tripCars} />
                             </section>
                         </form>
 

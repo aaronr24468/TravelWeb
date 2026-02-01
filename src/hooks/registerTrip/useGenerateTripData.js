@@ -44,8 +44,10 @@ export const useGenerateTripData = () => {
                 available_seats: selectCar.seats,
                 price: form.price.value,
                 starting_point: form.collectPoint.value,
-                image_origin: imgSelected.originImg,
-                image_destination: imgSelected.destinationImg,
+                destination_point: form.arrivedPoint.value,
+                arrived_point: form.arrivedPoint.value,
+                departure_time: form.departureTime.value,
+                arrived_time: form.ArrivedTime.value,
                 city_image: cityPhoto
             }
             console.log(dataTrip)
@@ -66,9 +68,8 @@ export const useGenerateTripData = () => {
             setLoading(true);
             setError(null);
             
-            const [listCars, listMaps, listCity] = await Promise.all([carList(), ListImagCity(), ListCity()])
-            if(listCars.ok) setCars(listCars.message);
-            if(listMaps.ok) setCityImages(listMaps.listImg);
+            const [listCars, listCity] = await Promise.all([carList(), ListCity()])
+            if(listCars.ok) setCars(listCars.cars);
             if(listCity.ok) setCityList(listCity.cityImages)
 
         } catch (error) {

@@ -22,39 +22,7 @@ export const ListImagCity = async () => {
     return response.json();
 }
 
-export const saveImageCity = async (clase, TImageO, TImageD, city, city2) => {
-    try {
-        if (clase === "saveOriginImage") {
-            const cityD = city
-            if (cityD.length != 0 && TImageO != null) {
-                const formData = new FormData();
-                formData.append('image', TImageO.dataImage);
-                const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
-                    method: 'post',
-                    credentials: 'include',
-                    body: formData
-                }).then((res) => res.json());
-                console.log(response.message)
-                response.message === "Success" ? "" : "";
-            }
-        } else {
-            const cityD = city2
-            if (cityD.length != 0 && TImageD != null) {
-                const formData = new FormData();
-                formData.append('image', TImageD.dataImage);
-                const response = await fetch(`${API_ROUTE}/v1/travel/uploadTripImage/${cityD}`, {
-                    method: 'post',
-                    credentials: 'include',
-                    body: formData
-                }).then((res) => res.json());
-                response.message === "Success" ? "" : "";
-            }
-        }
-    } catch (error) {
 
-    }
-
-}
 
 export const generateT = async (dataTrip) => {
 

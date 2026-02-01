@@ -15,7 +15,7 @@ export const VehicleSelector = ({ carsOptionsRef, setSelectCar, selectCar, cars,
                 </div>
 
                 <dialog id="listCityDestination" ref={refCityModal}>
-                    <button className="closeListCity" onClick={() => refCityModal.close()}>x</button>
+                    <a className="closeListCity" onClick={() => refCityModal.close()}>x</a>
                     <ul className="modalListCitys">
                         {cityList.map((element) => {
                             return(

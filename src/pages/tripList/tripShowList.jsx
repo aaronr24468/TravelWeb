@@ -1,6 +1,6 @@
 import './tripShowList.css';
 import { HeaderComponent } from '../../components/HeaderComponent';
-import { useTripList } from '../../hooks/listTrips/tripData.mjs';
+import { useTripList } from '../../hooks/listTrips/tripData.js';
 export const ListTrips = ({ }) => {
     const { data, error, loading, navigate } = useTripList();
 

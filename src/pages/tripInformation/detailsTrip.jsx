@@ -1,6 +1,9 @@
 import price from '../../assets/price.svg'
 import seats from '../../assets/seats.svg'
+import { useNavigate } from 'react-router'
+
 export const DetailsTrip = ({tripData}) =>{
+    const navigate = useNavigate();
 
     return(
         <>
@@ -12,7 +15,7 @@ export const DetailsTrip = ({tripData}) =>{
                     <img className='imgTotal' src={price} alt="" />
                 </div>
                 <div className="total">
-                    <span className="priceTitle">Precio:</span><span className="priceTotal">${tripData.price}</span>
+                    <span className="priceTitle">Precio:</span><span className="priceTotal">${tripData.price} MXN</span>
                 </div>
             </section>
             <section className='totalSeats'>
@@ -24,7 +27,7 @@ export const DetailsTrip = ({tripData}) =>{
                 </div>
             </section>
             <section className='reservation'>
-                <button className='seatReservation'>Reservar Asiento</button>
+                <button className='seatReservation' onClick={() => navigate(`/move&go/reservation/${tripData.id}`)}>Reservar Asiento</button>
             </section>
         </>
     )

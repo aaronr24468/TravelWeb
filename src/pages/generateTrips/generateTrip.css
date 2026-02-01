@@ -107,11 +107,19 @@
                                 position: absolute;
                                 right: 0;
                                 top: 0;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                user-select: none;
                                 width: 30px;
                                 aspect-ratio: 1;
                                 border-radius: 0 10px 0 10px;
                                 border: none;
                                 border: 1px solid rgba(0, 0, 0, 0.336);
+
+                                &:hover{
+                                    transform: scale(1.05);
+                                }
                             }
 
                             .modalListCitys {
@@ -287,15 +295,15 @@
 
                     .reference_Origin_Destination {
                         width: 100%;
-                        height: 170px;
+                        height: fit-content;
                         display: flex;
                         flex-direction: row;
                         margin-top: 10px;
                         gap: 10px;
 
-                        .imageReference {
+                        .ReferenceCity {
                             width: 50%;
-                            height: 100%;
+                            height: fit-content;
                             display: flex;
                             flex-direction: column;
                             gap: 5px;
@@ -314,202 +322,8 @@
                                     cursor: pointer;
                                 }
 
-                                .formUploadImage {
-                                    position: absolute;
-                                    left: 0;
-                                    top: 100%;
-                                    width: 100%;
-                                    height: 150px;
-                                    box-shadow: 0 0 5px black;
-                                    border-radius: 10px;
-                                    background: white;
-                                    padding: 5px;
-                                    display: none;
-                                    flex-direction: column;
-
-                                    .writeCity {
-                                        width: 100%;
-                                        display: flex;
-                                        align-items: center;
-
-                                        .ciudadImg {
-                                            width: 100%;
-                                            height: 20px;
-                                            border-radius: 5px;
-                                            border: 1px solid rgba(0, 0, 0, 0.281);
-                                            padding: 0 5px 0 5px;
-                                        }
-
-                                        a {
-                                            width: 20px;
-                                            height: 20px;
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center;
-                                        }
-
-                                    }
-
-
-
-                                    .imgContainerSelect {
-                                        width: 100%;
-                                        height: 100px;
-                                        position: relative;
-
-                                        .clickSelector {
-                                            width: 100%;
-                                            height: 100%;
-                                            position: absolute;
-                                            top: 0;
-                                        }
-
-                                        .selectImg {
-                                            display: none;
-                                        }
-
-                                        .selectImg2 {
-                                            display: none;
-                                        }
-
-                                        .imgSelected {
-                                            width: 100%;
-                                            height: 100%;
-                                            object-fit: cover;
-                                            border: 1px solid black;
-                                        }
-                                    }
-
-                                    .saveOriginImage {
-                                        width: 100%;
-                                        height: auto;
-                                        text-align: center;
-                                        text-decoration: none;
-                                        background: rgba(128, 128, 128, 0.158);
-                                        color: black;
-                                        border-radius: 0 0 5px 5px;
-
-                                        &:hover {
-                                            transform: scale(1.02);
-                                        }
-
-                                        &:active {
-                                            transform: scale(.98);
-                                        }
-                                    }
-
-                                    .saveDestinationImage {
-                                        width: 100%;
-                                        height: auto;
-                                        text-align: center;
-                                        text-decoration: none;
-                                        background: rgba(128, 128, 128, 0.158);
-                                        color: black;
-                                        border-radius: 0 0 5px 5px;
-
-                                        &:hover {
-                                            transform: scale(1.02);
-                                        }
-
-                                        &:active {
-                                            transform: scale(.98);
-                                        }
-                                    }
-
-                                }
+                                
                             }
-
-                            .imgContainer {
-                                width: 100%;
-                                height: 100%;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-
-                                .referencePhoto {
-                                    width: 100%;
-                                    height: 120px;
-                                    border-radius: 5px;
-                                    border: 2px solid rgb(207, 207, 207);
-                                    cursor: pointer;
-                                }
-
-                                dialog {
-                                    margin: 0 auto;
-                                    align-self: center;
-                                    width: 700px;
-                                    background: none;
-                                    border: none;
-                                    height: 400px;
-                                    box-shadow: 0 0 5px black;
-                                    background: white;
-                                    border-radius: 10px;
-                                    padding: 20px;
-                                    position: relative;
-                                    overflow: hidden;
-
-                                    .closeModal {
-                                        position: absolute;
-                                        right: 0;
-                                        top: 0;
-                                        width: 20px;
-                                        aspect-ratio: 1;
-                                        border-radius: 0 10px 0 10px;
-                                        background: none;
-                                        border: none;
-                                        box-shadow: 1px 0 5px black;
-                                        text-align: center;
-                                        cursor: pointer;
-
-                                        &:hover {
-                                            transform: scale(1.1);
-                                        }
-
-                                        &:active {
-                                            transform: scale(1);
-                                        }
-                                    }
-
-                                    .Lista_Images {
-                                        width: 100%;
-                                        height: 100%;
-                                        display: flex;
-                                        flex-direction: row;
-                                        flex-wrap: wrap;
-                                        flex-basis: 150px;
-                                        gap: 10px;
-
-                                        .itemList {
-                                            width: 150px;
-                                            height: 150px;
-                                            list-style-type: none;
-                                            box-shadow: 0 0 5px black;
-                                            border-radius: 10px;
-                                            transition: transform 0.1s linear;
-
-                                            img {
-                                                width: 100%;
-                                                height: 100%;
-                                                object-fit: cover;
-                                                cursor: pointer;
-                                                border-radius: 10px;
-                                            }
-
-                                            span {
-                                                font-size: 0.8rem;
-                                                width: 100%;
-                                                display: flex;
-                                                justify-content: center;
-                                            }
-
-                                            &:hover {
-                                                transform: scale(1.05);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
 
                             .contaiDescript {
                                 width: 100%;
@@ -518,6 +332,7 @@
 
                                 .inputD {
                                     width: 100%;
+                                    height: 30px;
                                     border: 2px solid rgb(207, 207, 207);
                                     border-radius: 5px;
                                     outline: none;
@@ -609,7 +424,32 @@
                                     }
                                 }
                             }
+
                         }
+                        .setTime{
+                                width: 100%;
+                                height: fit-content;
+                                display: flex;
+                                margin-top: 5px;
+
+                                .departureTime{
+                                    width: 50%;
+                                    height: 40px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+
+                                    input{
+                                        width: 50%;
+                                        border: none;
+                                        outline: none;
+                                        font-size: 1.1rem;
+                                        box-shadow: 0 0 5px black;
+                                        border-radius: 5px;
+                                    }
+                                }
+                            }
                     }
                 }
             }

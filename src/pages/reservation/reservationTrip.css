@@ -1,0 +1,308 @@
+.reservationPaymentContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'local';
+    overflow-y: auto;
+    gap: 10px;
+    padding: 20px;
+
+
+    .reservationListInfo {
+        width: 700px;
+        height: fit-content;
+        box-shadow: 0 0 5px black;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+        .quickInfoTrip {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 10px;
+
+            .driverDataReservation {
+                width: 100%;
+                height: 100px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.100);
+                padding: 0 0 10px 0;
+
+                .driverInfoR {
+                    width: fit-content;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    .driverIR {
+                        width: 100px;
+                        aspect-ratio: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            width: 70%;
+                            height: 70%;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .dataDriverR {
+                        width: fit-content;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.5rem;
+                    }
+                }
+
+                .carInfoR {
+                    width: 140px;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 5px;
+
+                    }
+                }
+            }
+
+            .infoTripReservation {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                display: flex;
+
+                .infoTripR {
+                    width: 50%;
+                    height: 100%;
+                    padding: 0 10px 0 0;
+                    border-right: 1px solid rgba(0, 0, 0, 0.100);
+
+                    .dataTInfo {
+                        width: 100%;
+                        height: 100px;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.100);
+                        padding: 5px 0 5px 0;
+
+                        .dataOriginT {
+                            width: fit-content;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0 0 0 30px;
+
+                            span {
+                                width: fit-content;
+                                display: flex;
+                                align-items: center;
+
+                                img {
+                                    width: 20px;
+                                }
+                            }
+
+                        }
+
+                        .dataDestinationT {
+                            width: fit-content;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 0 0 0 30px;
+
+                            span {
+                                width: fit-content;
+                                display: flex;
+                                align-items: center;
+
+                                img {
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .dateTrip {
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: right;
+                        align-items: center;
+                        gap: 5px;
+                    }
+
+                }
+
+                .totalR {
+                    width: 50%;
+                    height: 100%;
+                    margin-left: 10px;
+                    display: flex;
+                    flex-direction: column;
+
+
+                    .seatsInformation {
+                        width: 100%;
+                        height: fit-content;
+                        padding: 0 0 15px 0;
+
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.100);
+
+                        .amountSeatsA {
+                            width: fit-content;
+                            display: flex;
+                            align-items: center;
+                            gap: 3px;
+                        }
+
+                        .imgSuitcases {
+                            width: 100%;
+                            display: flex;
+                            gap: 15px;
+                            align-items: center;
+
+                            .imgSuitcaseContainer {
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                    }
+
+                    .completeReservation {
+                        width: 100%;
+                        height: fit-content;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 15px;
+
+                        .selectNumberSeats {
+                            padding: 5px 0 0 0;
+                            width: 100%;
+                            height: 20px;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 5px;
+
+                            .btnSeats {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 5px;
+                                border: none;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .seatsA {
+                                padding: 5px 0 0 0;
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+
+                                img {
+                                    width: 20px;
+                                }
+                            }
+                        }
+
+                        .priceTravel {
+                            width: 100%;
+                            font-size: 2rem;
+                        }
+
+                        .reserveNow {
+                            width: 100%;
+                            height: fit-content;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+
+                            .btnR {
+                                width: 100%;
+                                height: 40px;
+                                font-size: 1.2rem;
+                                color: white;
+                                background: rgb(255, 181, 43);
+                                border-radius: 10px;
+                                border: none;
+                                text-shadow: 0 0 3px black;
+                                cursor: pointer;
+                                transition: transform 0.1s linear;
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
+                            }
+
+                            .notReserve {
+                                background: rgb(235, 56, 56);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .conditions {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px 30px 20px 30px;
+            background: rgba(255, 208, 0, 0.26);
+            border-radius: 10px;
+
+            .titleAlert {
+                font-size: 1.3rem;
+                color: #ea580c;
+                display: flex;
+                align-items: center;
+
+                .alertConditions {
+                    width: 40px;
+                }
+            }
+
+            .checkBoxConfirm {
+                font-size: 0.9rem;
+                width: 100%;
+                display: flex;
+                gap: 5px;
+            }
+        }
+
+
+    }
+
+    .paymentSection {
+        width: 700px;
+    }
+
+
+}

@@ -21,7 +21,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        
+
 
 
         .imgDestination {
@@ -29,7 +29,7 @@
             height: 200px;
             position: relative;
             user-select: none;
-            
+
 
             .imgContainer {
                 width: 100%;
@@ -74,6 +74,18 @@
             justify-content: center;
             gap: 20px;
             font-weight: 500;
+
+            .textInfo {
+                width: fit-content;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                .svgLogo {
+                    width: 30px;
+                }
+            }
         }
 
         .driverInfo {
@@ -115,11 +127,12 @@
                     flex-direction: column;
                     gap: 4px;
 
-                    .nameDriver{
+                    .nameDriver {
                         font-weight: 500;
                         font-size: 1.5rem;
                     }
-                    .age{
+
+                    .age {
                         font-weight: 500;
                     }
 
@@ -147,12 +160,12 @@
                 flex-direction: row-reverse;
                 gap: 10px;
 
-                .imgCar{
+                .imgCar {
                     width: 200px;
                     height: 100%;
                     padding: 5px;
 
-                    .carPhoto{
+                    .carPhoto {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
@@ -160,14 +173,14 @@
                     }
                 }
 
-                .infoCar{
+                .infoCar {
                     width: fit-content;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
 
-                    span{
+                    span {
                         font-weight: 500;
                         font-size: 1.2rem;
                     }
@@ -176,23 +189,24 @@
             }
         }
 
-        .detailsTrip{
+        .detailsTrip {
             width: 100%;
             height: fit-content;
             box-shadow: 0 0 5px black;
             border-radius: 20px;
             padding: 10px;
 
-            .detailsTripTitle{
+            .detailsTripTitle {
                 padding: 0 0 10px 0;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.103);
 
-                .titlePrice{
+                .titlePrice {
                     font-size: 1.5rem;
                     font-weight: 700;
                 }
             }
-            .priceTrip{
+
+            .priceTrip {
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -200,15 +214,16 @@
                 padding: 10px 0 0 0;
                 gap: 20px;
 
-                .imgPrice{
+                .imgPrice {
                     width: auto;
                     height: auto;
 
-                    .imgTotal{
+                    .imgTotal {
                         width: 50px;
                     }
                 }
-                .total{
+
+                .total {
                     width: auto;
                     height: 100%;
                     display: flex;
@@ -216,38 +231,40 @@
                     display: flex;
                     align-items: center;
 
-                    .priceTitle{
+                    .priceTitle {
                         font-size: 0.9rem;
                     }
-                    .priceTotal{
+
+                    .priceTotal {
                         font-size: 1.1rem;
                         font-weight: 500;
                     }
                 }
             }
 
-            .totalSeats{
+            .totalSeats {
                 width: 100%;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.103);
                 display: flex;
                 align-items: center;
                 gap: 10px;
 
-                .imageSeats{
+                .imageSeats {
                     width: auto;
                     height: auto;
 
-                    .seatsImage{
+                    .seatsImage {
                         width: 60px;
                     }
                 }
-                .seatsAvailable{
+
+                .seatsAvailable {
                     width: auto;
                     height: auto;
                 }
             }
 
-            .reservation{
+            .reservation {
                 width: 100%;
                 height: auto;
                 display: flex;
@@ -255,7 +272,7 @@
                 justify-content: center;
                 padding: 10px 0 0 0;
 
-                .seatReservation{
+                .seatReservation {
                     width: 20%;
                     aspect-ratio: 9/1.5;
                     color: white;
@@ -264,10 +281,10 @@
                     border-radius: 10px;
                     font-size: 1.2rem;
                     cursor: pointer;
-                    background: linear-gradient(90deg,rgba(0, 183, 255, 1) 0%, rgba(87, 182, 199, 1) 50%, rgba(83, 237, 219, 1) 100%);
+                    background: linear-gradient(90deg, rgba(0, 183, 255, 1) 0%, rgba(87, 182, 199, 1) 50%, rgba(83, 237, 219, 1) 100%);
                     transition: transform 0.1s linear;
-                    
-                    &:hover{
+
+                    &:hover {
                         transform: scale(1.05);
                     }
                 }

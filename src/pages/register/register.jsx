@@ -4,7 +4,7 @@ import eye from '../../assets/eye.svg';
 import { useState } from 'react';
 import { checkData } from '../../functions/checkRegisterData';
 import { useNavigate } from 'react-router';
-import { useRegisterUser } from '../../hooks/register/useRegisterUser.mjs';
+import { useRegisterUser } from '../../hooks/register/useRegisterUser.js';
 
 export const RegisterComponent = ({ }) => {
     const hookRegister = useRegisterUser();

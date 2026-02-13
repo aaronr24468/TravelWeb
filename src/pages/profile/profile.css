@@ -1,0 +1,215 @@
+.profileHeader {
+    width: 100vw;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0 5px black;
+    z-index: 100000;
+}
+
+.mainProfileContainer {
+    width: 100vw;
+    height: 100vh;
+    padding: 9vh 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'local';
+    position: relative;
+
+    .profileContainer {
+        width: 800px;
+        height: auto;
+        padding: 20px;
+        box-shadow: 0 0 5px black;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+
+
+        .InfoUser {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .containerInfoName {
+                width: 100%;
+                height: auto;
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
+
+
+                .profileContainerImage {
+                    width: fit-content;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+
+                    .imgProfile {
+                        width: 150px;
+                        height: 150px;
+                        border: 2px solid rgba(0, 0, 0, 0.205);
+                        border-radius: 50%;
+                        padding: 5px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .infoProfile {
+                        width: calc(100% - 150px);
+                        height: 150px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        .nameProfile {
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                        }
+
+                        .rolProfile {
+                            font-size: 0.9rem;
+
+                        }
+
+                        .username {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+
+                .stripeStats {
+                    width: fit-content;
+                    height: fit-content;
+
+                    .earnings {
+                        color: #090909;
+                        padding: 0.5em 1.3em;
+                        font-size: 1rem;
+                        border-radius: 0.5em;
+                        background: #e8e8e8;
+                        cursor: pointer;
+                        border: 1px solid #e8e8e8;
+                        transition: all 0.3s;
+                        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+
+                        &:active{
+                            color: #666;
+                            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+
+
+        .historyTravels {
+            border: 3px solid rgba(197, 197, 197, 0.795);
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+
+            .historyList {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                padding: 0 0 0 10px;
+                background: rgba(197, 197, 197, 0.267);
+                font-weight: 600;
+            }
+
+            .listContainerTravels {
+                width: 100%;
+                height: 250px;
+                display: flex;
+                align-items: center;
+
+                .listTravelsC {
+                    width: 100%;
+                    height: 250px;
+                    display: grid;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    padding: 10px;
+                    gap: 5px;
+
+                    .itemTrip {
+                        list-style-type: none;
+                        width: 100%;
+                        height: 100px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border: 3px solid rgba(197, 197, 197, 0.795);
+                        padding: 10px;
+                        border-radius: 5px;
+
+                        .dataTrip {
+                            display: flex;
+                            width: auto;
+                            height: 100%;
+                            flex-direction: row;
+                            gap: 5px;
+
+                            .imageCity {
+                                width: 100px;
+                                height: 100%;
+
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    border-radius: 10px;
+                                }
+                            }
+
+                            .infoTUser {
+                                width: fit-content;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                            }
+                        }
+
+                        .BtnEndTrip {
+                            width: 100px;
+                            height: 30px;
+                            border-radius: 5px;
+                            background: rgba(0, 117, 250, 0.555);
+                            color: white;
+                            font-weight: 500;
+                            border: none;
+
+                            &:hover {
+                                background: rgb(0, 117, 250);
+                            }
+
+                            &:active {
+                                transform: scale(0.95);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -25,7 +25,7 @@ export const PaymentStatus = ({ }) => {
         })
 
         setTimeout(() => {
-            navigate("/move&go")
+            navigate("/move&go/myReservations")
         }, 3000)
     }, [])
 

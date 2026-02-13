@@ -22,3 +22,28 @@ export const uploadImageUser = async (file, id) => {
     })
     return (result.json())
 }
+
+export const registerDriverData = async(data) =>{
+    const result = await fetch(`${URL_PATH}/register/registDriver`,{
+        method: 'PUT',
+        credentials: 'include',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(data)
+    })
+
+    return(result.json());
+}
+
+export const setImageDriver = async(file, id) =>{
+    const formData = new FormData();
+    formData.append('image', file)
+    const result = await fetch(`${URL_PATH}/register/registDriver/setDriverImage/${id}`,{
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+    })
+
+    return(result.json());
+}

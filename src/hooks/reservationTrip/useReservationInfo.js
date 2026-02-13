@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { getDataTripSelected } from "../../services/tripData.mjs";
 import { useParams, useNavigate } from "react-router";
 import { setPaymentIntent } from "../../services/payment.service";
+
 export const useTripReservation = () =>{
     const[loading, setLoading] = useState(false);
     const[error, setError] = useState(null);
@@ -18,14 +19,14 @@ export const useTripReservation = () =>{
             setLoading(true);
             setError(null);
             const data = await getDataTripSelected(id);
-
+            
             if(!data.ok) return setError(data.message);
 
             setInfoTrip(data.trip[0])
             setAmount(data.trip[0].price)
             
         } catch (error) {
-            setError(Error.message || 'Error de servidor')
+            setError(error.message || 'Error de servidor')
         }finally{
             setLoading(false)
         }
@@ -45,6 +46,8 @@ export const useTripReservation = () =>{
                 amount: amount,
             }
             const response = await setPaymentIntent(data);
+           
+            if(response.ok === false) return setError(response.message)
 
             setClientSecretData(response.clientSecret)
 
@@ -67,6 +70,6 @@ export const useTripReservation = () =>{
         paymentIntent,
         amountSeat,
         clientSecretData,
-        setClientSecretData
+        setError
     }
 }

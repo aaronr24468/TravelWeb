@@ -14,12 +14,11 @@ export const useAuth = () =>{
             setError(null)
             
             const response = await loginRequest(data);
-
-            if(response.ok){
-                navigate("/move&go")
-            }else{
-                setError(response.message)
-            }
+            console.log(response)
+            if(!response.ok) return setError(response.message); 
+            
+            navigate("/move&go")
+                
             
         } catch (error) {
             setError("Error al iniciar sesión")
@@ -43,5 +42,5 @@ export const useAuth = () =>{
         checkAccount();
     }, [checkAccount])
 
-    return {login, loading, error}
+    return {login, loading, error, setError}
 }

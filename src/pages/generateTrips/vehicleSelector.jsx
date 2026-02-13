@@ -1,7 +1,8 @@
 import { useRef } from "react"
 import { useGenerateTripData } from "../../hooks/registerTrip/useGenerateTripData"
+import { RegisterVehicle } from "./registerVehicle";
 
-export const VehicleSelector = ({ carsOptionsRef, setSelectCar, selectCar, cars, cityList,setCityPhoto, cityPhoto }) => {
+export const VehicleSelector = ({ carsOptionsRef, setSelectCar, selectCar, cars, cityList,setCityPhoto, cityPhoto, getDataCar }) => {
     const refCityModal = document.getElementById('listCityDestination');
 
     return (
@@ -10,9 +11,11 @@ export const VehicleSelector = ({ carsOptionsRef, setSelectCar, selectCar, cars,
             <div className="selectV">
                 <label htmlFor="">Seleccionar Vehiculo*</label>
                 <div className="selectOptions">
-                    <a onClick={() => refCityModal.showModal()} className="selectCity">Seleccionar Origen</a>
-                    <a href="#">Registrar Vehiculo</a>
+                    <a onClick={() => refCityModal.showModal()} className="selectCity">Seleccionar Destino</a>
+                    <a href="#" onClick={() => document.getElementById('vehicleRegister').showModal()}>Registrar Vehiculo</a>
                 </div>
+
+                
 
                 <dialog id="listCityDestination" ref={refCityModal}>
                     <a className="closeListCity" onClick={() => refCityModal.close()}>x</a>

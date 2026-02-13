@@ -1,9 +1,12 @@
 import { useState, useCallback, useEffect } from "react";
-import { carList, generateT, ListCity, ListImagCity } from "../../services/generetaTrip.services";
+import { carList, generateT, ListCity, ListImagCity, registerCar, uploadCarImage } from "../../services/generetaTrip.services";
+import carSelect from '../../assets/RegisterCarSelected.svg'
+import { useNavigate } from "react-router";
 
 export const useGenerateTripData = () => {
-    const[login, setLoading] = useState(false);
-    const[error, setError] = useState(null)
+    const navigate = useNavigate();
+    const [login, setLoading] = useState(false);
+    const [error, setError] = useState(null)
     const [cars, setCars] = useState([]);
     const [cityImages, setCityImages] = useState([]); //Lista de imagenes de las ciudades a viajar
     const [origen, setOrigen] = useState('') //obtenemos el texto de la ciudad de orgen
@@ -15,7 +18,11 @@ export const useGenerateTripData = () => {
     })
     const [cityList, setCityList] = useState([])
     const [cityPhoto, setCityPhoto] = useState(null)
-    
+
+    const [tempUrl, setTempUrl] = useState(carSelect)
+    const [fileCar, setFileCar] = useState(null)
+    const [reloadList, setRealoadList] = useState(false);
+
 
     const [selectCar, setSelectCar] = useState({ //
         vehicle_id: '',
@@ -52,33 +59,76 @@ export const useGenerateTripData = () => {
             }
             console.log(dataTrip)
             const res = await generateT(dataTrip)
-            console.log(res)
+            
+            if(!res.ok) return setError(res.message)
 
+            navigate('/move&go')
         } catch (error) {
-            setError()
+            setError(error.message || "Error de servidor")
         } finally {
             setLoading(false)
         }
 
     }
 
-    const getAllInfo = useCallback(async() =>{
+    const getAllInfo = useCallback(async () => {
         try {
 
             setLoading(true);
             setError(null);
-            
+
             const [listCars, listCity] = await Promise.all([carList(), ListCity()])
-            if(listCars.ok) setCars(listCars.cars);
-            if(listCity.ok) setCityList(listCity.cityImages)
+            if (listCars.ok) setCars(listCars.cars);
+            if (listCity.ok) setCityList(listCity.cityImages)
 
         } catch (error) {
             setError(error.message || "Error de servidor")
-        }finally{
+        } finally {
             setLoading(false);
         }
-    },[])
+    }, [reloadList])
 
+    const getDataCar = async (event) => {
+        event.preventDefault();
+        try {
+            const data = {
+                brand: event.target.brand.value,
+                model: event.target.model.value,
+                color: event.target.color.value,
+                plates: event.target.plates.value,
+                insured: event.target.insured.checked,
+                year: event.target.year.value,
+                seats: event.target.seats.value
+            }
+            const res = await registerCar(data);
+            console.log(res)
+
+            if (!res.ok) return setError(res.message);
+
+            const id = res.id
+
+            setTimeout(async () => {
+                const formData = new FormData();
+                formData.append('image', fileCar)
+                const res = await uploadCarImage(formData, id);
+
+                if (!res.ok) return setError(res.message);
+
+                setError(res.message)
+                setRealoadList(true)
+                document.getElementById('vehicleRegister').close()
+            }, 100)
+        } catch (error) {
+            setError(error.message || "Error de servidor")
+        }
+    }
+
+    const getPhotoCar = (event) => {
+        const file = event.target.files[0];
+        const tempUrl = URL.createObjectURL(file)
+        setTempUrl(tempUrl)
+        setFileCar(file)
+    }
 
 
     useEffect(() => {
@@ -99,6 +149,9 @@ export const useGenerateTripData = () => {
         selectCar,
         cityList,
         setCityPhoto,
-        cityPhoto
+        cityPhoto,
+        getDataCar,
+        getPhotoCar,
+        tempUrl
     };
 }

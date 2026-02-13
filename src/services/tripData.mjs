@@ -8,6 +8,5 @@ export const getDataTripSelected = async(id) =>{
             "Content-Type":"application/json"
         }
     })
-
     return trip.json();
 }

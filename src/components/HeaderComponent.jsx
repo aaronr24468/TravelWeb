@@ -49,7 +49,7 @@ export const HeaderComponent = ({}) => {
     }
 
     const logOut = async () => {
-        const response = await fetch('http://localhost:8080/v1/travel/logout', {
+        const response = await fetch('http://localhost:8080/auth/logout', {
             method: 'get',
             credentials: 'include',
             headers: {
@@ -80,8 +80,8 @@ export const HeaderComponent = ({}) => {
                     <div onClick={showUserOptions} className='userNav' id='userNav'>
                         <div className="containerList">
                             <ul onClick={showUserOptions} className='userListOptions'>
-                                <li><a href="" className="user-Options">perfil</a></li>
-                                <li><a href="" className="user-Options">Mis viajes</a></li>
+                                <li><a href="" onClick={() => navigate('/move&go/profile')} className="user-Options">perfil</a></li>
+                                <li><a onClick={() =>{navigate('/move&go/myReservations')}} className="user-Options">Mis viajes</a></li>
                                 <li className='viajeG' id='viajeG'><a href="#" className="user-Options user-viajesG" onClick={generateTrip}><img className='generateViajeLogo' src={tripLogo} alt="" />Generar viaje</a></li>
                                 <li><a onClick={logOut} href="" className="user-Options">Cerrar sesión</a></li>
                             </ul>

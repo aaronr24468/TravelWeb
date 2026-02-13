@@ -1,0 +1,246 @@
+.registerDriversContainer{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'local';
+
+    .containerFormDriver{
+        width: 80%;
+        height: 80%;
+        box-shadow: 0 0 5px black;
+        display: flex;
+        flex-direction: row;
+        border-radius: 10px;
+        
+        .contInfo{
+            width: 50%;
+            height: 100%;
+        }
+        .imageDriver{
+            box-shadow: 2px 0 5px black;
+            border-radius: 10px 0 0 10px;
+
+            .driverPhotoShow{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px 0 0 10px;
+            }
+        }
+
+        .dataDriver{
+            width: 50%;
+            height: 100%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            .message{
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 10% 0 10%;
+                text-align: center;
+
+                img{
+                    width: 150px;
+                }
+            }
+
+            .names{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                span{
+                    font-size: 1.2rem;
+                }
+
+                .inputName{
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+
+                    input{
+                        width: 33.33%;
+                        height: 100%;
+                        border: none;
+                        border-bottom: 1px solid black;
+                        padding: 0 5px 0 5px;
+                        font-size: 1rem;
+                        outline: none;
+                        text-align: center;
+                    }
+                    
+                }
+            }
+
+            .userData{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+
+                span{
+                    font-size: 1.2rem;
+                }
+
+                .inputUsuario{
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+
+                    .inputUserP{
+                        width: 50%;
+                        height: 100%;
+                        border: none;
+                        border-bottom: 1px solid black;
+                        outline: none;
+                        font-size: 1rem;
+                        text-align: center;
+                        position: relative;
+
+                        .passwordData{
+                            width: 100%;
+                            height: 100%;
+                            outline: none;
+                            border: none;
+                            text-align: center;
+                            font-size: 1rem;
+                        }
+                        .showPDriverR{
+                            position: absolute;
+                            right: 5px;
+                            top: 5px;
+                            width: 20px;
+                            height: 20px;
+                            cursor: pointer;
+                            opacity: 0.3;
+                            transition: opacity 0.2s linear;
+
+                            &:hover{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .EmailData{
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                span{
+                    font-size: 1.2rem;
+                }
+
+                .correoData{
+                    width: 100%;
+                    height: 30px;
+
+                    input{
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid black;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .phoneData{
+                width: 100%;
+                height: fit-content;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .phoneDataC{
+                    width: 50%;
+                    height: fit-content;
+                    display: flex;
+                    flex-direction: column;
+
+                    span{
+                        font-size: 1.2rem;
+                    }
+
+                    input{
+                        width: 100%;
+                        height: 30px;
+                        border: none;
+                        outline: none;
+                        border-bottom: 1px solid black;
+                        text-align: center;
+                    }
+                }
+                .selectImageD{
+                    width: 50%;
+                    height: fit-content;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .selectDriverPhoto{
+                        width: 100px;
+                        height: 100px;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            transition: transform 0.1s linear;
+
+                            &:hover{
+                                transform: scale(1.1);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    #DriverPhoto{
+                        display: none;
+                    }
+                }
+            }
+
+            .submitDriver{
+                width: 150px;
+                height: 50px;
+                border-radius: 10px;
+                border: none;
+                background: none;
+                box-shadow: 0 0 5px black;
+                transition: transform 0.1s linear;
+                cursor: pointer;
+
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+
+        }
+    }
+}

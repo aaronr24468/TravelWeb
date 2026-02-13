@@ -47,3 +47,25 @@ export const ListCity = async() =>{
     })
     return(imgCity.json());  
 }
+
+export const registerCar = async(data) =>{
+    const resRegisterCar = await fetch(`${API_ROUTE}/v1/travel/register/Vehicle`,{
+        method: 'POST',
+        credentials: 'include',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    return(resRegisterCar.json());
+}
+
+export const uploadCarImage = async(formData, id) =>{
+    const resUploadImage = await fetch(`${API_ROUTE}/v1/travel/uploadImageCar/${id}`,{
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+    })
+    return(resUploadImage.json())
+}

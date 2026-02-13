@@ -6,6 +6,7 @@ import selectCar from '../../assets/selectCar.svg'
 import { useGenerateTripData } from '../../hooks/registerTrip/useGenerateTripData';
 import { VehicleSelector } from './vehicleSelector';
 import { StartingPoint } from './startingPoint';
+import { RegisterVehicle } from './registerVehicle';
 
 export const GenerateTrip = ({ }) => {
     const tripCars = useGenerateTripData();
@@ -56,6 +57,9 @@ export const GenerateTrip = ({ }) => {
                         <h2>Crear Viaje</h2>
                         <span>Llena el formulario para programar un viaje</span>
                     </section>
+
+                    <RegisterVehicle getDataCar={tripCars.getDataCar} getPhotoCar={tripCars.getPhotoCar} tempUrl={tripCars.tempUrl}/>
+                    
                     <section className="containerData">
 
                         <form className="formTrip" id='formTrip' onSubmit={tripCars.getInfoTrip} >

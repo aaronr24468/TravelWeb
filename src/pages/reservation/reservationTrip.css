@@ -6,8 +6,10 @@
     flex-direction: column;
     font-family: 'local';
     overflow-y: auto;
+    overflow-x: hidden;
     gap: 10px;
     padding: 20px;
+    position: relative;
 
 
     .reservationListInfo {

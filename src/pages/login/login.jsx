@@ -6,10 +6,11 @@ import eye from '../../assets/eye.svg'
 import { useAuth } from '../../hooks/login/useAuth';
 import { useRef, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { ErrorMessage } from '../../components/ErrorMessage';
 
 export const LoginComponent = ({ }) => {
     const refPassword = useRef(null)
-    const { login, loading, error } = useAuth();
+    const { login, loading, error, setError } = useAuth();
     const navigate = useNavigate();
 
 
@@ -42,6 +43,7 @@ export const LoginComponent = ({ }) => {
     return (
         <>
             <main className='mainContainer'>
+                <ErrorMessage error={error} setError={setError}/>
                 <div className="mainBox">
 
                     {/* imagen de login */}

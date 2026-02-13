@@ -1,0 +1,218 @@
+.headerMyResevations {
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0 5px black;
+    background: white;
+}
+
+.listMyReservations {
+    font-family: 'local';
+    width: 100vw;
+    height: 100vh;
+    padding: 100px 100px 50px 100px;
+    display: flex;
+
+    .listReservations {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        gap: 20px;
+        flex-direction: row;
+        align-items: end;
+
+        .itemReservation {
+            width: 300px;
+            height: 200px;
+            list-style-type: none;
+            box-shadow: 0 0 10px black;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.1s linear;
+            position: relative;
+
+            .msgRefund {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 500;
+                background: rgba(0, 0, 0, 0.199);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-shadow: 0 0 3px black;
+                border-radius: 10px;
+                user-select: none;
+
+                span {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                }
+            }
+
+            .infoReser {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+
+                .imageContainerReser {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 5px;
+                    }
+
+                    .destinationReser {
+                        width: 100%;
+                        height: 15px;
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        gap: 5px;
+                        bottom: 5px;
+                        left: 0;
+                        padding: 0 0 0 5px;
+                        font-size: 0.7rem;
+                        color: white;
+                        background: rgba(255, 255, 255, 0.253);
+
+                        .arrowTrip {
+                            width: 10px;
+                        }
+
+                        span {
+                            text-shadow: 0 0 2px black;
+                        }
+                    }
+                }
+            }
+
+            .data {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                padding: 5px 0 0 0;
+
+                .tripinfo {
+                    width: 60%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+
+                    .paid {
+                        background: greenyellow;
+                    }
+                }
+
+                .cancelTrip {
+                    width: 40%;
+                    height: 100%;
+                    display: flex;
+                    padding: 10px;
+
+                    .cancelTripBtn {
+                        width: 100%;
+                        height: 100%;
+                        background: red;
+                        border-radius: 5px;
+                        border: none;
+                        color: white;
+                        text-shadow: 0 0 5px black;
+                        cursor: pointer;
+                        transition: transform 0.1s linear;
+                        font-weight: 700;
+                        font-size: 1rem;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    #dialogCancelTrip {
+
+
+        align-self: center;
+        justify-self: center;
+        width: 40%;
+        padding: 20px;
+        text-align: center;
+        gap: 20px;
+        border: none;
+        box-shadow: 0 0 5px black;
+        border-radius: 10px;
+
+        .cancelTripContainer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .stripeTime {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .confirmationBtn {
+                width: 100%;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                .btnConfirmation {
+                    width: 150px;
+                    height: 50px;
+                    font-size: 1.1rem;
+                    color: white;
+                    text-shadow: 0 0 4px black;
+                    border-radius: 5px;
+                    border: none;
+                    box-shadow: 0 0 5px black;
+                    cursor: pointer;
+                    transition: transform 0.1s linear;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+                .cancel {
+                    background: red;
+
+                }
+
+                .confirm {
+                    background: greenyellow;
+                }
+            }
+        }
+
+    }
+}

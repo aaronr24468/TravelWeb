@@ -1,6 +1,6 @@
 import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({setError}) => {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -21,11 +21,13 @@ const CheckoutForm = () => {
 
         console.log(result)
 
-        if(result.error){
+        if(result.error){ //aqui mostrar el mensaje de pago insuficiente o no se pudo hacer el pago
             console.log(result.error.message)
+            if(result.error.code === "card_declined") setError("No cuentas con suficientes fondos");
         }else{
             console.log('pago procesado', result)
         }
+
     };
 
     return(

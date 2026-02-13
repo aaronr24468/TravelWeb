@@ -1,0 +1,50 @@
+#stripeConnectModal {
+    justify-self: center;
+    align-self: center;
+    width: 40%;
+    height: fit-content;
+    border: none;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .messageConnect {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        padding: 0 50px 0 50px;
+        text-align: center;
+
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .btnActivar {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+
+        .activarConnect {
+            background: rgb(6, 122, 255);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s linear;
+            margin: 0 auto;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+
+}

@@ -16,7 +16,7 @@ export const HeaderComponent = ({}) => {
 
     const getInfoUser = async () => {
         try {
-            const userData = await fetch(`http://localhost:8080/v1/travel/getDataUser/navBar`, {
+            const userData = await fetch(`http://localhost:8080/auth/getDataUser/navBar`, {
                 method: 'get',
                 credentials: "include",
                 headers: {
@@ -37,7 +37,7 @@ export const HeaderComponent = ({}) => {
 
     const generateTrip = async (event) => {
         event.preventDefault();
-        const driverR = await fetch('http://localhost:8080/v1/travel/verifyRol', {
+        const driverR = await fetch('http://localhost:8080/auth/verifyRol', {
             method: 'get',
             credentials: "include",
             headers: {

@@ -12,6 +12,7 @@ import { PaymentStatus } from './pages/paymentStatus/PaymentStatus'
 import { MyReservations } from './pages/myReservations/myReservation'
 import { ProfileComponent } from './pages/profile/profile'
 import { RegisterDriver } from './pages/registerDrivers/regiterDriver'
+import { CheckAuth } from './components/checkAuth'
 
 function App() {
   // const navigate = useNavigate();
@@ -34,17 +35,67 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<LoginComponent />} />
-        <Route path='/move&go' element={<MainComponent />}/>
-        <Route path='/move&go/profile' element={<ProfileComponent />}/>
-        <Route path='/register' element={<RegisterComponent />}/>
-        <Route path='/register/driver/move&go' element={<RegisterDriver />}/>
-        <Route path='/move&go/tripG' element={<GenerateTrip />}/>
-        <Route path='/move&go/myReservations' element={<MyReservations />}/>
-        <Route path='/move&go/showTrips' element={<ListTrips />}/>
-        <Route path='/move&go/showTrips/trips/:idTrip' element={<TripReservation />}/>
-        <Route path='/move&go/reservation/:id' element={<ReservationTrip />} />
-        <Route path='/move&go/paymentStatus/' element={<PaymentStatus />}/>
+
+        <Route path='/' element={
+          <LoginComponent />} 
+        />
+
+        <Route path='/move&go' element={
+          <CheckAuth> 
+            <MainComponent /> 
+          </CheckAuth>}
+        />
+        
+        <Route path='/move&go/profile' element={
+          <CheckAuth> 
+            <ProfileComponent /> 
+          </CheckAuth>}
+        />
+
+        <Route path='/register' element={
+          <RegisterComponent />}
+        />
+
+        <Route path='/register/driver/move&go' element={
+          <RegisterDriver />}
+        />
+
+        <Route path='/move&go/tripG' element={
+          <CheckAuth> 
+            <GenerateTrip /> 
+          </CheckAuth>}
+        />
+
+        <Route path='/move&go/myReservations' element={
+          <CheckAuth> 
+            <MyReservations /> 
+          </CheckAuth>}
+        />
+
+        <Route path='/move&go/showTrips' element={
+          <CheckAuth> 
+            <ListTrips /> 
+          </CheckAuth>}
+        />
+
+        <Route path='/move&go/showTrips/trips/:idTrip' element={
+          <CheckAuth> 
+            <TripReservation /> 
+          </CheckAuth>}
+        />
+
+        <Route path='/move&go/reservation/:id' element={
+          <CheckAuth> 
+            <ReservationTrip /> 
+            </CheckAuth>} 
+          />
+
+        <Route path='/move&go/paymentStatus/' element={
+          <CheckAuth>
+            <PaymentStatus />
+          </CheckAuth>}
+        />
+
       </Routes>
     </>
   )

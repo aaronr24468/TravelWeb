@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:8080';
 
 export const getReservations = async() =>{
-    const data = await fetch(`${API_URL}/v1/travel/getMyReservations`,{
+    const data = await fetch(`${API_URL}/user/getMyReservations`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -12,7 +12,7 @@ export const getReservations = async() =>{
 }
 
 export const cancelReservationApi = async(id) =>{
-    const res = await fetch(`${API_URL}/v1/travel/cancelReservation/${id}`,{
+    const res = await fetch(`${API_URL}/user/cancelReservation/${id}`,{
         method: "POST",
         credentials: 'include',
         headers:{

@@ -26,6 +26,10 @@ export const MyReservations = ({ }) => {
                                     <span>Rembolso exitoso</span>
                                 </div>}
 
+                                {element.trip_completed === 1 && <div className='msgRefund'>
+                                    <span>Viaje finalizado</span>
+                                </div>}
+
 
                                 <section className="infoReser">
                                     <div className="imageContainerReser">

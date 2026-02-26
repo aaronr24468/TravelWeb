@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { earningsLink, finishTripApi, geMyTrips, getDataProfile, setIdStripe, verifyDriverOnboarded } from "../../services/profile.services";
+import { cancelDriverTrip, earningsLink, finishTripApi, geMyTrips, getDataProfile, setIdStripe, verifyDriverOnboarded } from "../../services/profile.services";
 
 export const useProfileHook = () => {
     const [loading, setLoading] = useState(false);
@@ -45,12 +45,25 @@ export const useProfileHook = () => {
         try {
             const doomBtn = event.target;
             const id = doomBtn.id;
-            const resDB = await finishTripApi(id)
-            if(!resDB.ok) return setError(res.message);
+            
+            const resDB = await finishTripApi(id);
+         
+            if(!resDB.ok) return setError(resDB.message);
 
             setError(resDB.message)
         } catch (error) {
             setError(error.message || "Error de servidor")
+        }
+    }
+
+    const cancelTrip = async(event) =>{
+        try {
+            const domBtn = event.target;
+            const id = domBtn.id;
+            const res = await cancelDriverTrip(id)
+            console.log(res)
+        } catch (error){
+            setError(error.message || "Error de servidor");
         }
     }
 
@@ -75,6 +88,7 @@ export const useProfileHook = () => {
         setError,
         refStripe,
         finishTrip,
-        getEarnings
+        getEarnings,
+        cancelTrip
     }
 }

@@ -104,7 +104,7 @@
                         transition: all 0.3s;
                         box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 
-                        &:active{
+                        &:active {
                             color: #666;
                             box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
                         }
@@ -133,6 +133,9 @@
                 padding: 0 0 0 10px;
                 background: rgba(197, 197, 197, 0.267);
                 font-weight: 600;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px 0 10px;
             }
 
             .listContainerTravels {
@@ -190,23 +193,45 @@
                             }
                         }
 
-                        .BtnEndTrip {
-                            width: 100px;
-                            height: 30px;
-                            border-radius: 5px;
-                            background: rgba(0, 117, 250, 0.555);
-                            color: white;
-                            font-weight: 500;
-                            border: none;
+                        .actionButton {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
 
-                            &:hover {
-                                background: rgb(0, 117, 250);
+                            
+
+                            .BtnEndTrip {
+                                width: 120px;
+                                height: 30px;
+                                border-radius: 5px;
+                                background: rgba(0, 117, 250, 0.555);
+                                color: white;
+                                font-weight: 500;
+                                border: none;
+                                padding: 0 5px 0 5px;
+
+                                &:hover {
+                                    background: rgb(0, 117, 250);
+                                }
+
+                                &:active {
+                                    transform: scale(0.95);
+                                }
                             }
 
-                            &:active {
-                                transform: scale(0.95);
+                            .cancelTripBtn{
+                                background: rgba(255, 0, 0, 0.267);
+
+                                &:hover {
+                                    background: rgb(255, 0, 0);
+                                }
+
+                                &:active {
+                                    transform: scale(0.95);
+                                }
                             }
                         }
+
                     }
                 }
             }

@@ -14,7 +14,7 @@ export const loginRequest = async (data) => {
 }
 
 export const checkAccountRequest = async() =>{
-    const res = await fetch(`${API_URL}/v1/travel/checkAccount`,{
+    const res = await fetch(`${API_URL}/auth/checkAccount`,{
         method: 'GET',
         credentials: 'include',
         headers: {

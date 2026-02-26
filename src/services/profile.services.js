@@ -2,7 +2,7 @@ const URL_PATH = 'http://localhost:8080'
 
 export const getDataProfile = async() =>{
     
-    const dataProfile = await fetch(`${URL_PATH}/v1/travel/getDataUser/profile`,{
+    const dataProfile = await fetch(`${URL_PATH}/auth/getDataUser/profile`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -29,7 +29,7 @@ export const setIdStripe = async(data) =>{
 };
 
 export const geMyTrips = async() =>{
-    const myTrips = await fetch(`${URL_PATH}/v1/travel/getDriver/travelsList`,{
+    const myTrips = await fetch(`${URL_PATH}/driver/getDriver/travelsList`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -42,7 +42,7 @@ export const geMyTrips = async() =>{
 
 export const finishTripApi = async(id) =>{
     
-    const resTripFinish = await fetch(`${URL_PATH}/v1/travel/accomplisedTravel`,{
+    const resTripFinish = await fetch(`${URL_PATH}/driver/accomplisedTravel`,{
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -76,4 +76,16 @@ export const earningsLink = async() =>{
     })
 
     return(url.json())
+}
+
+export const cancelDriverTrip = async(id_Travel) =>{
+    const res = await fetch(`${URL_PATH}/driver/cancelTravel`,{
+        method: "PUT",
+        credentials: 'include',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({id_Travel: id_Travel})
+    })
+    return(res.json());
 }

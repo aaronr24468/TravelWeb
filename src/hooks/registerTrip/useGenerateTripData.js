@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { carList, generateT, ListCity, ListImagCity, registerCar, uploadCarImage } from "../../services/generetaTrip.services";
+import { carList, checkRoll, generateT, ListCity, ListImagCity, registerCar, uploadCarImage } from "../../services/generetaTrip.services";
 import carSelect from '../../assets/RegisterCarSelected.svg'
 import { useNavigate } from "react-router";
 
@@ -101,7 +101,6 @@ export const useGenerateTripData = () => {
                 seats: event.target.seats.value
             }
             const res = await registerCar(data);
-            console.log(res)
 
             if (!res.ok) return setError(res.message);
 
@@ -123,15 +122,26 @@ export const useGenerateTripData = () => {
         }
     }
 
-    const getPhotoCar = (event) => {
+    const getPhotoCar = (event) => { //se ejecuta cuando el input fiel cambia y se obtiene el file
         const file = event.target.files[0];
         const tempUrl = URL.createObjectURL(file)
         setTempUrl(tempUrl)
         setFileCar(file)
     }
 
+    const authenticatedRoll = async() =>{
+        try {
+            const rollC = await checkRoll();
+            console.log(rollC)
+            rollC.driver? '':navigate("/move&go")
+        } catch (error) {
+            setError(error.message || 'Error de servidor')
+        }
+    }
+
 
     useEffect(() => {
+        authenticatedRoll();
         getAllInfo();
     }, [getAllInfo]);
 

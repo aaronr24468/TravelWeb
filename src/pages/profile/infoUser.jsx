@@ -1,5 +1,5 @@
 export const InfomationUser = ({ data, getEarnings }) => {
-
+    //console.log(data)
     return (
         <>
             <div className="containerInfoName">
@@ -14,7 +14,7 @@ export const InfomationUser = ({ data, getEarnings }) => {
                     </div>
                 </section>
                 <section className="stripeStats">
-                    <button className="earnings" onClick={getEarnings}>Mis ganancias</button>
+                    {data.rol === "driver" && <button className="earnings" onClick={getEarnings}>Mis ganancias</button>}
                 </section>
 
             </div>

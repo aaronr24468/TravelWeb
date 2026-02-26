@@ -1,7 +1,7 @@
 const API_URL = 'http://localhost:8080';
 
 export const setPaymentIntent = async(data) =>{
-    const response = await fetch(`${API_URL}/v1/travel/payment_Intent`,{
+    const response = await fetch(`${API_URL}/stripe/payment_Intent`,{
         method: 'POST',
         credentials: 'include',
         headers:{

@@ -13,36 +13,6 @@ export const GenerateTrip = ({ }) => {
 
     const carsOptionsRef = useRef(null)
 
-    const navigate = useNavigate();
-
-
-    const checkRol = useCallback(async () => {
-        const rolC = await fetch('http://localhost:8080/v1/travel/verifyRol', {
-            method: 'get',
-            credentials: 'include',
-            headers: {
-                "Content-Type": "Application/json"
-            }
-        }).then((res) => res.json());
-        rolC.driver ? "" : navigate("/move&go");
-    }, [])
-
-    const checkAccount = useCallback(async () => {
-        const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
-            method: 'get',
-            credentials: 'include',
-            headers: {
-                "Content-Type": "Application/json",
-            }
-        }).then((res) => res.json());
-        response.ok ? '' : navigate('/');
-    }, [])
-
-    useEffect(() => {
-        checkAccount();
-        checkRol();
-    }, [checkAccount, checkRol]);
-
     return (
         <>
             <main className="createTrip">

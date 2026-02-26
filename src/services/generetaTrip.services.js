@@ -1,7 +1,7 @@
 const API_ROUTE = "http://localhost:8080";
 
 export const carList = async () => {
-    const reponse = await fetch(`${API_ROUTE}/v1/travel/listCars`, {
+    const reponse = await fetch(`${API_ROUTE}/driver/listCars`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -26,7 +26,7 @@ export const ListImagCity = async () => {
 
 export const generateT = async (dataTrip) => {
 
-    const tripResponse = await fetch(`${API_ROUTE}/v1/travel/setTrip`, {
+    const tripResponse = await fetch(`${API_ROUTE}/driver/setTrip`, {
         method: 'post',
         credentials: 'include',
         headers: {
@@ -38,7 +38,7 @@ export const generateT = async (dataTrip) => {
 }
 
 export const ListCity = async() =>{
-    const imgCity = await fetch(`${API_ROUTE}/v1/travel/getCityImages`,{
+    const imgCity = await fetch(`${API_ROUTE}/driver/getCityImages`,{
         method:"get",
         credentials: 'include',
         headers:{
@@ -49,7 +49,7 @@ export const ListCity = async() =>{
 }
 
 export const registerCar = async(data) =>{
-    const resRegisterCar = await fetch(`${API_ROUTE}/v1/travel/register/Vehicle`,{
+    const resRegisterCar = await fetch(`${API_ROUTE}/driver/register/Vehicle`,{
         method: 'POST',
         credentials: 'include',
         headers:{
@@ -62,10 +62,22 @@ export const registerCar = async(data) =>{
 }
 
 export const uploadCarImage = async(formData, id) =>{
-    const resUploadImage = await fetch(`${API_ROUTE}/v1/travel/uploadImageCar/${id}`,{
+    const resUploadImage = await fetch(`${API_ROUTE}/driver/uploadImageCar/${id}`,{
         method: 'POST',
         credentials: 'include',
         body: formData
     })
     return(resUploadImage.json())
+}
+
+export const checkRoll = async() =>{
+    const result = await fetch(`${API_ROUTE}/auth/verifyRol`,{
+        method: 'GET',
+        credentials: 'include',
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+
+    return(result.json());
 }

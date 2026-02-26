@@ -13,7 +13,7 @@ export const ReservationTrip = ({ }) => {
     return (
         <>
             <main className='reservationPaymentContainer'>
-                <ErrorMessage error={dataTrip.error} setError={dataTrip.setError}/>
+                <ErrorMessage error={dataTrip.error} setError={dataTrip.setError} />
 
                 <form onSubmit={dataTrip.paymentIntent} className='reservationListInfo'>
 
@@ -22,7 +22,7 @@ export const ReservationTrip = ({ }) => {
                         <InfoTrip info={dataTrip.infoTrip} />
                     </section>
                     <section className='conditions'>
-                        <span className='titleAlert'><img className='alertConditions' src={aler} alt="" />Todas las cancelaciones reciben solo el 50% de reembolso</span>
+                        <span className='titleAlert'><img className='alertConditions' src={aler} alt="" />Todas las cancelaciones por parte del usuario reciben solo el 50% de rembolso</span>
                         <div className="checkBoxConfirm">
                             <p>Al reservar, confirmo que entiendo y acepto la política de cancelación de este servicio.</p>
                             <input type="checkbox" name='acceptPolicies' />
@@ -31,7 +31,7 @@ export const ReservationTrip = ({ }) => {
                     </section>
                 </form>
                 <section className='paymentSection'>
-                    <PaymentPage clientSecret={dataTrip.clientSecretData} setError={dataTrip.setError}/>
+                    <PaymentPage clientSecret={dataTrip.clientSecretData} setError={dataTrip.setError} />
                 </section>
             </main>
         </>

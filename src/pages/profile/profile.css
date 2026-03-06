@@ -148,8 +148,9 @@
                     width: 100%;
                     height: 250px;
                     display: grid;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                     overflow-x: hidden;
+                    scrollbar-width: thin;
                     padding: 10px;
                     gap: 5px;
 
@@ -190,6 +191,44 @@
                                 display: flex;
                                 flex-direction: column;
                                 justify-content: center;
+                                position: relative;
+
+
+
+                                .seatsA {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    
+
+                                    .details {
+                                        width: 20px;
+                                        cursor: pointer;
+                                        transition: transform 0.2s linear;
+                                        
+                                        
+
+                                        &:hover {
+                                            transform: scale(1.1);
+                                        }
+                                    }
+                                }
+
+                                .InfoListUser {
+                                    position: absolute;
+                                    left: 30%;
+                                    top: 70px;
+                                    width: 400px;
+                                    height: fit-content;
+                                    border-radius: 10px;
+                                    box-shadow: 0 0 5px black;
+                                    backdrop-filter: blur(5px);
+                                    display: none;
+                                    flex-direction: column;
+                                    gap: 5px;
+                                    padding: 10px;
+                                    z-index: 1000;
+                                }
                             }
                         }
 
@@ -198,7 +237,7 @@
                             flex-direction: column;
                             gap: 10px;
 
-                            
+
 
                             .BtnEndTrip {
                                 width: 120px;
@@ -219,7 +258,7 @@
                                 }
                             }
 
-                            .cancelTripBtn{
+                            .cancelTripBtn {
                                 background: rgba(255, 0, 0, 0.267);
 
                                 &:hover {

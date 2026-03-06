@@ -13,6 +13,7 @@
     height: 100vh;
     padding: 100px 100px 50px 100px;
     display: flex;
+    overflow-y: auto;
 
     .listReservations {
         width: 100%;
@@ -21,6 +22,7 @@
         gap: 20px;
         flex-direction: row;
         align-items: end;
+        flex-wrap: wrap;
 
         .itemReservation {
             width: 300px;

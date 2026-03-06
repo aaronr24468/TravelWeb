@@ -8,7 +8,7 @@ import { StripeConnect } from '../../components/stripeConnect';
 
 export const ProfileComponent = ({ }) => {
 
-    const { data, trips, loading, error, setError, refStripe, finishTrip, getEarnings, cancelTrip } = useProfileHook();
+    const { data, trips, loading, error, setError, refStripe, finishTrip, getEarnings, cancelTrip, getUsersListTravel, listNames } = useProfileHook();
     
     //console.log(data)
     return (
@@ -26,7 +26,7 @@ export const ProfileComponent = ({ }) => {
                     </section>
 
                     <section className='historyTravels'>
-                        {data.rol != "user" && <HistoryTravels trips={trips} finishTrip={finishTrip} cancelTrip={cancelTrip}/>}
+                        {data.rol != "user" && <HistoryTravels trips={trips} finishTrip={finishTrip} cancelTrip={cancelTrip} getUsersListTravel={getUsersListTravel} listNames={listNames}/>}
                     </section>
 
                 </div>

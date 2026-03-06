@@ -1,6 +1,8 @@
 import { useState } from "react"
+import details from '../../assets/details.svg'
+import { UserListTravel } from "../../components/usersListTravel";
 
-export const HistoryTravels = ({ trips, finishTrip, cancelTrip }) => {
+export const HistoryTravels = ({ trips, finishTrip, cancelTrip, getUsersListTravel, listNames }) => {
     const [select, setSelect] = useState(1);
     return (
         <>
@@ -23,9 +25,22 @@ export const HistoryTravels = ({ trips, finishTrip, cancelTrip }) => {
                                             <img src={element.city_image} alt="" />
                                         </div>
                                         <div className="infoTUser">
-                                            <span>{element.origin_city} a {element.destination_city}</span>
+
+                                            <span>{element.origin_city} a {element.destination_city} 
+                                                
+                                            </span>
+
                                             <span>Fecha: {element.departure_date}</span>
-                                            <span>Asientos disponibles: {element.available_seats}</span>
+                                            <span className="seatsA">Asientos disponibles: {element.available_seats}
+                                                <img onMouseEnter={getUsersListTravel} 
+                                                    onMouseLeave={()=>{document.getElementById('InfoListUser').style.display = ""}} 
+                                                    className="details" id={element.id} src={details} alt="" 
+                                                />
+                                            </span>
+
+                                            <ul className="InfoListUser" id="InfoListUser">
+                                                <UserListTravel listNames={listNames}/>
+                                            </ul>
                                         </div>
 
                                     </div>

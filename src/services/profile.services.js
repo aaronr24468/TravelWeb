@@ -89,3 +89,14 @@ export const cancelDriverTrip = async(id_Travel) =>{
     })
     return(res.json());
 }
+
+export const getListUserReservation = async(id) =>{
+    const list = await fetch(`${URL_PATH}/driver/list/users/reservation/${id}`,{
+        method: 'GET',
+        credentials: 'include',
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+    return(list.json());
+}

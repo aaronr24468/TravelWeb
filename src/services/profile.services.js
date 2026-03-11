@@ -98,5 +98,18 @@ export const getListUserReservation = async(id) =>{
             "Content-Type":"application/json"
         }
     })
+    
     return(list.json());
+}
+
+export const inPorgress = async(id) =>{
+    const result = await fetch(`${URL_PATH}/driver/trip/progress/${id}`,{
+        method: 'put',
+        credentials: 'include',
+        headers:{
+            "Content-type":"application/json"
+        }
+    })
+
+    return(result.json());
 }

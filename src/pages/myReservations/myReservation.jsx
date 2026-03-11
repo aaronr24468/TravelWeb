@@ -46,20 +46,33 @@ export const MyReservations = ({ }) => {
                                         <div className="tripinfo">
                                             <span>Total: ${element.total_amount}</span>
                                             <div className="paid">
-                                                {element.payment_status === "paid" && <span>Status: Pagado</span>}
+                                                {element.payment_status === "paid" && element.refund_status === null && <span>Status: Pagado</span>
+                                                ||
+                                                element.payment_status === "paid" && element.refund_status === 'refund' && <span>Status: Rembolsado</span>
+                                                }
                                             </div>
                                             <span>Salida: {element.day}/{element.month}/{element.year}</span>
                                             {element.refund_status === "refund" ?
                                                 element.trip_completed === 0 && <span>Viaje: Cancelado</span>
                                                 :
                                                 (
-                                                    element.trip_completed === 0 && <span>Viaje: en proceso</span> || element.trip_completed === 1 && <span>Viaje: en proceso</span>
+                                                    element.trip_completed === 0 && <span>Viaje: en proceso</span>
+                                                    ||
+                                                    element.trip_completed === 1 && <span>Viaje: Terminado</span>
+                                                    ||
+                                                    element.trip_completed === 3 && <span>Viaje: en Curso</span>
                                                 )
                                             }
 
                                         </div>
                                         <div className="cancelTrip">
-                                            <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
+                                            
+                                            {element.trip_completed === 1 && <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
+                                            ||
+                                            element.trip_completed === 3 && <button className='reviewDriver'>Calificar Conductor</button>
+                                            }
+                                                 
+                                            
                                         </div>
                                     </section>
 

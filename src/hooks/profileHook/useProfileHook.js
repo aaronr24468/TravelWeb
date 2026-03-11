@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { cancelDriverTrip, earningsLink, finishTripApi, geMyTrips, getDataProfile, getListUserReservation, setIdStripe, verifyDriverOnboarded } from "../../services/profile.services";
+import { cancelDriverTrip, earningsLink, finishTripApi, geMyTrips, getDataProfile, getListUserReservation, inPorgress, setIdStripe, verifyDriverOnboarded } from "../../services/profile.services";
 
 export const useProfileHook = () => {
     const [loading, setLoading] = useState(false);
@@ -7,7 +7,8 @@ export const useProfileHook = () => {
     const [data, setData] = useState({});
     const [trips, setTrips] = useState([]);
     const [reload, setReload] = useState(false);
-    const [listNames, setListNames] = useState([])
+    const [listNames, setListNames] = useState([]);
+    const [inProgrss, setInProgress] = useState(false);
 
     const refStripe = useRef();
 
@@ -92,6 +93,22 @@ export const useProfileHook = () => {
         
     }
 
+    const inProgressTrip = async(event) =>{
+        try {
+            const id = event.target.id;
+            const result = await inPorgress(id);
+            console.log(result)
+
+            if(!result.ok) return setError(result.message);
+
+            const listTrips = await geMyTrips();
+            setTrips(listTrips.list)
+
+        } catch (error) {
+            setError(error.message || "Error de servidor")
+        }
+    }
+
     useEffect(() => {
         getData();
     }, [getData])
@@ -107,6 +124,7 @@ export const useProfileHook = () => {
         getEarnings,
         cancelTrip,
         getUsersListTravel,
-        listNames
+        listNames,
+        inProgressTrip
     }
 }

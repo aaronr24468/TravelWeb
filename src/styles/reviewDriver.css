@@ -1,0 +1,57 @@
+#reviewComponent {
+    z-index: 100000;
+    align-self: center;
+    justify-self: center;
+    width: 600px;
+    height: fit-content;
+    border: none;
+    border-radius: 10px;
+
+
+    .containerReview {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        user-select: none;
+
+
+        .titleQ {
+            font-size: 1.2rem;
+        }
+
+        .quialificationStars {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            gap: 3px;
+
+            .stars {
+                list-style-type: none;
+                font-size: 2rem;
+                cursor: pointer;
+                color: black;
+            }
+            .color{
+                text-shadow: 0 0 3px black;
+                color: yellow;
+            }
+        }
+
+        .MessageQuialification {
+            width: 100%;
+            height: 100px;
+            font-family: 1rem;
+            padding: 5px;
+        }
+
+        .sendReview {
+            width: 100%;
+            height: 30px;
+
+        }
+    }
+
+
+}

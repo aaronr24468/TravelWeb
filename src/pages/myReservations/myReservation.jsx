@@ -2,6 +2,7 @@ import { HeaderComponent } from '../../components/HeaderComponent'
 import { useMyReservationData } from '../../hooks/myReservation/useMyReservation'
 import './myReservation.css'
 import arrow from '../../assets/rightArrow.svg'
+import { ReviewTripDriver } from '../../components/reviewDriver'
 
 export const MyReservations = ({ }) => {
     const { data, loading, error, setError, cancelReservation, } = useMyReservationData();
@@ -13,7 +14,13 @@ export const MyReservations = ({ }) => {
                 <HeaderComponent />
             </header>
             <main className='listMyReservations'>
+                
+                <ReviewTripDriver />
+
                 <ul className='listReservations'>
+
+                    
+
                     {data.map((element) => {
                         if (element.payment_status != "pending" && element.payment_status != "expired") {
                             return (
@@ -69,7 +76,7 @@ export const MyReservations = ({ }) => {
                                             
                                             {element.trip_completed === 1 && <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
                                             ||
-                                            element.trip_completed === 3 && <button className='reviewDriver'>Calificar Conductor</button>
+                                            element.trip_completed === 3 && <button className='reviewDriver' onClick={() => {document.getElementById('reviewComponent').showModal()}}>Calificar Conductor</button>
                                             }
                                                  
                                             

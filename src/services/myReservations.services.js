@@ -22,3 +22,16 @@ export const cancelReservationApi = async(id) =>{
 
     return(res.json());
 } 
+
+export const reviewDriver = async(data) =>{
+    const res = await fetch(`${API_URL}/user/review/trips/:id`,{
+        method: 'post',
+        credentials: 'include',
+        headers:{
+            "Content-type":"application/json"
+        },
+        body: JSON.stringify(data)
+    })
+
+    return(res.json());
+}

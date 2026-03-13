@@ -15,6 +15,7 @@
     display: flex;
     overflow-y: auto;
 
+
     .listReservations {
         width: 100%;
         height: fit-content;
@@ -23,6 +24,7 @@
         flex-direction: row;
         align-items: end;
         flex-wrap: wrap;
+
 
         .itemReservation {
             width: 300px;

@@ -7,14 +7,16 @@ export const useReviewHook = () => {
     const [message, setMessage] = useState(null)
     const tagStar = document.querySelectorAll('.stars');
 
-
-    const sendReview = async() => {
+    const sendReview = async(event) => {
         try {
             const data = {
+                id: event.target.id,
                 qualification: stars,
                 msg: message
             }
+
             console.log(data)
+
             const result = await reviewDriver(data)
             if(!result.ok) setError(result.message)
         } catch (error) {

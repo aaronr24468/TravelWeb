@@ -6,6 +6,7 @@ export const useMyReservationData = () => {
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
     const [refundCancel, setRefundCancel] = useState(false)
+    const [idTravel, setIdTravel] = useState(0)
 
     const getMyReservations = useCallback(async () => {
         try {
@@ -46,6 +47,7 @@ export const useMyReservationData = () => {
         error,
         setError,
         cancelReservation,
-        
+        setIdTravel,
+        idTravel
     }
 }

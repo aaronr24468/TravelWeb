@@ -5,7 +5,7 @@ import arrow from '../../assets/rightArrow.svg'
 import { ReviewTripDriver } from '../../components/reviewDriver'
 
 export const MyReservations = ({ }) => {
-    const { data, loading, error, setError, cancelReservation, } = useMyReservationData();
+    const { data, loading, error, setError, cancelReservation, setIdTravel, idTravel } = useMyReservationData();
 
     console.log(data)
     return (
@@ -15,7 +15,7 @@ export const MyReservations = ({ }) => {
             </header>
             <main className='listMyReservations'>
                 
-                <ReviewTripDriver />
+                <ReviewTripDriver idTravel={idTravel}/>
 
                 <ul className='listReservations'>
 
@@ -76,7 +76,7 @@ export const MyReservations = ({ }) => {
                                             
                                             {element.trip_completed === 1 && <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
                                             ||
-                                            element.trip_completed === 3 && <button className='reviewDriver' onClick={() => {document.getElementById('reviewComponent').showModal()}}>Calificar Conductor</button>
+                                            element.trip_completed === 3 && <button className='reviewDriver' onClick={() => {setIdTravel(element.trip_id),document.getElementById('reviewComponent').showModal()}}>Calificar Conductor</button>
                                             }
                                                  
                                             

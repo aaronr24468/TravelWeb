@@ -1,6 +1,7 @@
 import { useReviewHook } from '../hooks/reviewHook/useReviewHook'
 import '../styles/reviewDriver.css'
-export const ReviewTripDriver = ({ }) => {
+
+export const ReviewTripDriver = ({ idTravel }) => {
     const { setStars, sendReview, setMessage } = useReviewHook();
 
     //me hace falta conseguir mandar el id del trip a el modal para acomodar el service del enpoint
@@ -18,7 +19,7 @@ export const ReviewTripDriver = ({ }) => {
                         <li onClick={() => setStars(5)} className="stars">&#9734;</li>
                     </ul>
                     <textarea className="MessageQuialification" onChange={(event) => setMessage(event.target.value)} ></textarea>
-                    <button onClick={sendReview} className='sendReview'>Calificar</button>
+                    <button onClick={sendReview} id={idTravel} className='sendReview'>Calificar</button>
                 </section>
 
             </dialog>

@@ -10,3 +10,14 @@ export const getDataTripSelected = async(id) =>{
     })
     return trip.json();
 }
+
+export const getReviewsList = async(idTrip) =>{
+    const reviews = await fetch(`${API_URL}/trip/getReviews/${idTrip}`,{
+        method: 'GET',
+        credentials: 'include',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    return(reviews.json());
+}

@@ -11,7 +11,7 @@ import { DriverInfo } from './infoDriver';
 import { DetailsTrip } from './detailsTrip';
 
 export const TripReservation = ({}) =>{
-    const {loading, error, tripData} = useTripData();
+    const {loading, error, tripData, reviewsData, getReviewsData, reviews} = useTripData();
 
     return(
         <>
@@ -34,7 +34,7 @@ export const TripReservation = ({}) =>{
                     </section>
 
                     <section className='driverInfo'>
-                        <DriverInfo tripData={tripData}/>
+                        <DriverInfo tripData={tripData} reviewsData={reviewsData} getReviewsData={getReviewsData} reviews={reviews}/>
                     </section>
 
                     <section className='detailsTrip'>

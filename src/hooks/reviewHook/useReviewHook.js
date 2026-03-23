@@ -7,7 +7,7 @@ export const useReviewHook = () => {
     const [message, setMessage] = useState(null)
     const tagStar = document.querySelectorAll('.stars');
 
-    const sendReview = async(event) => {
+    const sendReview = async (event) => {
         try {
             const data = {
                 id: event.target.id,
@@ -18,7 +18,15 @@ export const useReviewHook = () => {
             console.log(data)
 
             const result = await reviewDriver(data)
-            if(!result.ok) setError(result.message)
+            if (!result.ok) setError(result.message)
+
+            setStars(0);
+            setMessage(null);
+            document.querySelector('.MessageQuialification').value = ''
+            tagStar.forEach((element) => {
+                element.classList.remove('color')
+            })
+            document.getElementById('reviewComponent').close();
         } catch (error) {
             setError(error.message || "Error de servidor")
         }

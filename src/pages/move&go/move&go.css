@@ -3,7 +3,7 @@
     height: 100vh;
     overflow-x: hidden;
     scrollbar-width: thin;
-    
+
     .header-Move-And-Go {
         width: 100vw;
         height: 7vh;
@@ -11,6 +11,11 @@
         position: sticky;
         top: 0;
         background: white;
+        z-index: 10000;
+
+        @media (width <=1400px) {
+            height: 55px;
+        }
     }
 
     .mainContainer-Move-And-Go {

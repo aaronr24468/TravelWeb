@@ -4,7 +4,12 @@
     position: fixed;
     top: 0;
     box-shadow: 0 0 5px black;
+    z-index: 10000;
     background: white;
+
+    @media (width <= 1400px){
+        height: 55px;
+    }
 }
 
 .listMyReservations {
@@ -17,12 +22,13 @@
 
 
     .listReservations {
-        width: 100%;
+        width: fit-content;
         height: fit-content;
         display: flex;
         gap: 20px;
         flex-direction: row;
         align-items: end;
+        justify-content: center;
         flex-wrap: wrap;
 
 

@@ -4,7 +4,12 @@
     position: fixed;
     top: 0;
     box-shadow: 0 0 5px black;
-    z-index: 100000;
+    z-index: 100000000000;
+    background: #ffffff;
+
+    @media (width <= 1400px){
+        height: 55px;
+    }
 }
 
 .mainProfileContainer {
@@ -140,8 +145,8 @@
 
                 .InfoListUser {
                     position: absolute;
-                    left: 30%;
-                    top: 300px;
+                    right: 0;
+                    top: 0;
                     width: 400px;
                     height: fit-content;
                     border-radius: 10px;
@@ -278,5 +283,9 @@
                 }
             }
         }
+    }
+
+    @media (width < 1400px){
+        padding: 90px 10px 10px 10px;
     }
 }

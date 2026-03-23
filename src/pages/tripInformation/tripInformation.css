@@ -4,7 +4,12 @@
     background: white;
     box-shadow: 0 0 5px black;
     position: fixed;
+    z-index: 10000;
     top: 0;
+
+    @media (width <=1400px) {
+        height: 55px;
+    }
 }
 
 .mainTripInformation {
@@ -14,6 +19,7 @@
     align-items: center;
     justify-content: center;
     font-family: 'local';
+    overflow-y: auto;
 
     .informationTrip {
         width: 70%;
@@ -21,6 +27,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
 
 
 
@@ -140,155 +147,279 @@
                         width: 100%;
                         height: 40px;
                         display: flex;
+                        flex-direction: row;
                         align-items: center;
-                        gap: 5px;
+                        gap: 15px;
+                        position: relative;
 
-                        img {
-                            cursor: pointer;
-                            width: 30px;
+                        .ratingDriver {
+                            width: fit-content;
+                            height: fit-content;
+                            display: flex;
+                            align-items: center;
+
+                            img {
+                                cursor: pointer;
+                                width: 30px;
+                            }
+
                         }
+
+                        .quantityReview {
+                            font-size: 0.9rem;
+                        }
+
+                        #showReviews {
+                            left: 200px;
+                            width: 400px;
+                            height: 200px;
+                            border: none;
+                            box-shadow: 0 0 5px black;
+                            border-radius: 10px;
+                            background: none;
+                            backdrop-filter: blur(5px);
+                            outline: none;
+
+                            .mainContainerReviews {
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                display: flex;
+
+                                .btnCloseReviews {
+                                    position: absolute;
+                                    outline: none;
+                                    right: 0;
+                                    top: 0;
+                                    width: 25px;
+                                    height: 25px;
+                                    border-radius: 0 10px 0 0;
+                                    border: 1px solid rgba(0, 0, 0, 0.212);
+                                    background: none;
+                                    font-size: 1.1rem;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    &:hover {
+                                        transform: scale(1.1);
+                                    }
+
+                                    &:active {
+                                        transform: scale(1);
+                                    }
+                                }
+                            }
+
+                            .listReviesAvailable {
+                                width: 400px;
+                                height: 200px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 5px;
+                                overflow-y: auto;
+                                scrollbar-width: thin;
+                                padding: 5px;
+
+                                .containerReview {
+                                    width: 100%;
+                                    height: 100px;
+                                    box-shadow: 0 0 5px black;
+                                    border-radius: 10px;
+                                    padding: 5px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 5px;
+
+                                    .dataUserR {
+                                        width: 100%;
+                                        height: fit-content;
+                                        display: flex;
+
+                                        .imageReview {
+                                            width: 50%;
+                                            height: 100%;
+                                            display: flex;
+                                            align-items: center;
+
+                                            .profileImageR {
+                                                width: 30px;
+                                                height: 30px;
+                                                object-fit: cover;
+                                                border-radius: 50%;
+                                            }
+                                        }
+
+                                        .ratingR {
+                                            width: 50%;
+                                            height: 100%;
+                                            display: flex;
+                                            align-items: center;
+
+                                            .ratingStars{
+                                                width: 30px;
+                                            }
+                                        }
+                                    }
+
+                                    .commentReview{
+                                        width: 100%;
+                                        height: fit-content;
+                                        display: flex;
+                                        align-items: center;
+                                    }
+                                }
+                            }
+                        }
+
                     }
+
                 }
-            }
-
-            .dataCar {
-                width: fit-content;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: row-reverse;
-                gap: 10px;
-
-                .imgCar {
-                    width: 200px;
-                    height: 100%;
-                    padding: 5px;
-
-                    .carPhoto {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        border-radius: 20px;
-                    }
-                }
-
-                .infoCar {
-                    width: fit-content;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-
-                    span {
-                        font-weight: 500;
-                        font-size: 1.2rem;
-                    }
-                }
-
             }
         }
 
-        .detailsTrip {
-            width: 100%;
-            height: fit-content;
-            box-shadow: 0 0 5px black;
-            border-radius: 20px;
-            padding: 10px;
+        .dataCar {
+            width: fit-content;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            gap: 10px;
 
-            .detailsTripTitle {
-                padding: 0 0 10px 0;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+            .imgCar {
+                width: 200px;
+                height: 100%;
+                padding: 5px;
 
-                .titlePrice {
-                    font-size: 1.5rem;
-                    font-weight: 700;
-                }
-            }
-
-            .priceTrip {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
-                padding: 10px 0 0 0;
-                gap: 20px;
-
-                .imgPrice {
-                    width: auto;
-                    height: auto;
-
-                    .imgTotal {
-                        width: 50px;
-                    }
-                }
-
-                .total {
-                    width: auto;
+                .carPhoto {
+                    width: 100%;
                     height: 100%;
-                    display: flex;
-                    gap: 5px;
-                    display: flex;
-                    align-items: center;
-
-                    .priceTitle {
-                        font-size: 0.9rem;
-                    }
-
-                    .priceTotal {
-                        font-size: 1.1rem;
-                        font-weight: 500;
-                    }
+                    object-fit: cover;
+                    border-radius: 20px;
                 }
             }
 
-            .totalSeats {
-                width: 100%;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+            .infoCar {
+                width: fit-content;
+                height: 100%;
                 display: flex;
-                align-items: center;
-                gap: 10px;
-
-                .imageSeats {
-                    width: auto;
-                    height: auto;
-
-                    .seatsImage {
-                        width: 60px;
-                    }
-                }
-
-                .seatsAvailable {
-                    width: auto;
-                    height: auto;
-                }
-            }
-
-            .reservation {
-                width: 100%;
-                height: auto;
-                display: flex;
-                align-items: center;
+                flex-direction: column;
                 justify-content: center;
-                padding: 10px 0 0 0;
 
-                .seatReservation {
-                    width: 20%;
-                    aspect-ratio: 9/1.5;
-                    color: white;
-                    text-shadow: 0 0 5px black;
-                    border: none;
-                    border-radius: 10px;
+                span {
+                    font-weight: 500;
                     font-size: 1.2rem;
-                    cursor: pointer;
-                    background: linear-gradient(90deg, rgba(0, 183, 255, 1) 0%, rgba(87, 182, 199, 1) 50%, rgba(83, 237, 219, 1) 100%);
-                    transition: transform 0.1s linear;
+                }
+            }
 
-                    &:hover {
-                        transform: scale(1.05);
-                    }
+        }
+    }
+
+    .detailsTrip {
+        width: 100%;
+        height: fit-content;
+        box-shadow: 0 0 5px black;
+        border-radius: 20px;
+        padding: 10px;
+
+        .detailsTripTitle {
+            padding: 0 0 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+
+            .titlePrice {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+
+        .priceTrip {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+            padding: 10px 0 0 0;
+            gap: 20px;
+
+            .imgPrice {
+                width: auto;
+                height: auto;
+
+                .imgTotal {
+                    width: 50px;
+                }
+            }
+
+            .total {
+                width: auto;
+                height: 100%;
+                display: flex;
+                gap: 5px;
+                display: flex;
+                align-items: center;
+
+                .priceTitle {
+                    font-size: 0.9rem;
+                }
+
+                .priceTotal {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .totalSeats {
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .imageSeats {
+                width: auto;
+                height: auto;
+
+                .seatsImage {
+                    width: 60px;
+                }
+            }
+
+            .seatsAvailable {
+                width: auto;
+                height: auto;
+            }
+        }
+
+        .reservation {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0 0 0;
+
+            .seatReservation {
+                width: 20%;
+                aspect-ratio: 9/1.5;
+                color: white;
+                text-shadow: 0 0 5px black;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                background: linear-gradient(90deg, rgba(0, 183, 255, 1) 0%, rgba(87, 182, 199, 1) 50%, rgba(83, 237, 219, 1) 100%);
+                transition: transform 0.1s linear;
+
+                &:hover {
+                    transform: scale(1.05);
                 }
             }
         }
     }
+}
+
+@media (width < 1400px) {
+    padding: 250px 0 0 0;
+}
 }

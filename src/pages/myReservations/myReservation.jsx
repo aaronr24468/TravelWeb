@@ -74,7 +74,8 @@ export const MyReservations = ({ }) => {
                                         </div>
                                         <div className="cancelTrip">
                                             
-                                            {element.trip_completed === 1 && <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
+                                            {
+                                            element.trip_completed === 0 && element.refund_status === null && <button className='cancelTripBtn' onClick={() => { document.getElementById('dialogCancelTrip').showModal() }}>Cancelar</button>
                                             ||
                                             element.trip_completed === 3 && <button className='reviewDriver' onClick={() => {setIdTravel(element.trip_id),document.getElementById('reviewComponent').showModal()}}>Calificar Conductor</button>
                                             }

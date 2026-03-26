@@ -256,13 +256,13 @@
                                             display: flex;
                                             align-items: center;
 
-                                            .ratingStars{
+                                            .ratingStars {
                                                 width: 30px;
                                             }
                                         }
                                     }
 
-                                    .commentReview{
+                                    .commentReview {
                                         width: 100%;
                                         height: fit-content;
                                         display: flex;
@@ -417,9 +417,8 @@
             }
         }
     }
-}
 
-@media (width < 1400px) {
-    padding: 250px 0 0 0;
-}
+    @media (width < 1400px) {
+        padding: 250px 0 0 0;
+    }
 }

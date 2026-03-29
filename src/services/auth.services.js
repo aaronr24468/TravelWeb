@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://api.moveandgo.com.mx';
 
 export const loginRequest = async (data) => {
     console.log(data)

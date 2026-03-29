@@ -39,11 +39,10 @@ export const HistoryTravels = ({ trips, finishTrip, cancelTrip, getUsersListTrav
                                         </div>
                                         <div className="infoTUser">
 
-                                            <span>{element.origin_city} a {element.destination_city}
-
-                                            </span>
+                                            <span>{element.origin_city} a {element.destination_city}</span>
 
                                             <span>Fecha: {element.departure_date}</span>
+                                            <span>Hora de salida: {element.departure_hour}</span>
                                             <span className="seatsA">Asientos disponibles: {element.available_seats}
                                                 <img onMouseEnter={getUsersListTravel}
                                                     onMouseLeave={() => { document.getElementById('InfoListUser').style.display = "" }}

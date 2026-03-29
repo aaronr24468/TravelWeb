@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://api.moveandgo.com.mx';
 
 export const getReservations = async() =>{
     const data = await fetch(`${API_URL}/user/getMyReservations`,{

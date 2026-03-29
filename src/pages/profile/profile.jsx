@@ -10,7 +10,7 @@ export const ProfileComponent = ({ }) => {
 
     const { data, trips, loading, error, setError, refStripe, finishTrip, getEarnings, cancelTrip, getUsersListTravel, listNames, inProgressTrip } = useProfileHook();
     
-    //console.log(data)
+    console.log(trips)
     return (
         <>
             <header className='profileHeader'>

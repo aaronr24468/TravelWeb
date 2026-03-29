@@ -97,7 +97,7 @@ export const useProfileHook = () => {
         try {
             const id = event.target.id;
             const result = await inPorgress(id);
-            console.log(result)
+            //console.log(result)
 
             if(!result.ok) return setError(result.message);
 

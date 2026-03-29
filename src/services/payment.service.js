@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://api.moveandgo.com.mx';
 
 export const setPaymentIntent = async(data) =>{
     const response = await fetch(`${API_URL}/stripe/payment_Intent`,{

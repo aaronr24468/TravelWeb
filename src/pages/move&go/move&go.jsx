@@ -10,7 +10,7 @@ export const MainComponent = ({}) => {
     const navigate = useNavigate();
 
     const checkAccount = useCallback(async () => {
-      const response = await fetch('http://localhost:8080/v1/travel/checkAccount', {
+      const response = await fetch('https://api.moveandgo.com.mx/v1/travel/checkAccount', {
         method: 'get',
         credentials: 'include',
         headers: {

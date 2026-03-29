@@ -16,7 +16,7 @@ export const HeaderComponent = ({}) => {
 
     const getInfoUser = async () => {
         try {
-            const userData = await fetch(`http://localhost:8080/auth/getDataUser/navBar`, {
+            const userData = await fetch(`https://api.moveandgo.com.mx/auth/getDataUser/navBar`, {
                 method: 'get',
                 credentials: "include",
                 headers: {
@@ -37,7 +37,7 @@ export const HeaderComponent = ({}) => {
 
     const generateTrip = async (event) => {
         event.preventDefault();
-        const driverR = await fetch('http://localhost:8080/auth/verifyRol', {
+        const driverR = await fetch('https://api.moveandgo.com.mx/auth/verifyRol', {
             method: 'get',
             credentials: "include",
             headers: {
@@ -49,7 +49,7 @@ export const HeaderComponent = ({}) => {
     }
 
     const logOut = async () => {
-        const response = await fetch('http://localhost:8080/auth/logout', {
+        const response = await fetch('https://api.moveandgo.com.mx/auth/logout', {
             method: 'get',
             credentials: 'include',
             headers: {

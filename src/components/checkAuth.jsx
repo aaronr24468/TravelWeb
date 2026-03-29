@@ -3,7 +3,7 @@ import { useNavigate } from "react-router"
 
 export const CheckAuth = ({ children }) => {
     const navigate = useNavigate();
-    const URL_PATH = `http://localhost:8080`
+    const URL_PATH = `https://api.moveandgo.com.mx`
     const [loading, setLoading] = useState(true);
     const [isAuth, setIsAuth] = useState(false)
 

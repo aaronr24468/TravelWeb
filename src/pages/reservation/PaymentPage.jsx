@@ -3,7 +3,7 @@ import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 
 
-const stripePromise = loadStripe('pk_test_51Su0F1J0IEihRdiGXGM08V3ik3VGuJjaJ6Gk7vRPfePnrkBrhDPZFjIG4wpd6hDMifWRvQk693WjLwWzHQ4k1rSx00JmyjFHfY');
+const stripePromise = loadStripe('pk_live_51Su0EaJ5GdgFUR9puQrRC2UVuYiI96gCE4aEToEx8ozMYG6DUU9vVasjSEWMSzacg4hqwge9oSPZoe4xXRxmhJSP00nQiidD3G');
 
 export const PaymentPage = ({ clientSecret, setError }) => {
     // hacemos una condicion en la que le decimos que si clientSecret es tiene algo y el Elements tiene algo en clienSecret nos muestra la pagina mientras no crea nada

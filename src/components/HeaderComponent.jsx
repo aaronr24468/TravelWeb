@@ -72,7 +72,7 @@ export const HeaderComponent = ({}) => {
                 </div>
                 <nav className='navHeaderComponent'>
                     <ul className='listaNavHeader'>
-                        <li><a className='travel-options' href="https://api.moveandgo.com.mx/move&go">Inicio</a></li>
+                        <li><a className='travel-options' href="https://www.moveandgo.com.mx/move&go">Inicio</a></li>
                         <li><a className='travel-options' href="/move&go/showTrips">Viajes</a></li>
                         <li><a className='travel-options' href="#">Tarifas</a></li>
                         <li><a className='travel-profile' onClick={showUserOptions} href="#"><img src={userInfo.image} alt="" /></a></li>

@@ -1,4 +1,4 @@
-const API_ROUTE = "http://api.moveandgo.com.mx";
+const API_ROUTE = "https://api.moveandgo.com.mx";
 
 export const carList = async () => {
     const reponse = await fetch(`${API_ROUTE}/driver/listCars`, {

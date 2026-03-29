@@ -1,4 +1,4 @@
-const API_URL = 'http://api.moveandgo.com.mx';
+const API_URL = 'https://api.moveandgo.com.mx';
 
 export const getList = async() =>{
     const res = await fetch(`${API_URL}/trip/getListTravel`,{

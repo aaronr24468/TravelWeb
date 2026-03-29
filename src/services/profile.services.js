@@ -1,4 +1,4 @@
-const URL_PATH = 'http://api.moveandgo.com.mx'
+const URL_PATH = 'https://api.moveandgo.com.mx'
 
 export const getDataProfile = async() =>{
     

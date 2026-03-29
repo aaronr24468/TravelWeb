@@ -21,6 +21,7 @@ export const useAuth = () =>{
                 
             
         } catch (error) {
+            console.log(error)
             setError("Error al iniciar sesión")
         }finally{
             setLoading(false)

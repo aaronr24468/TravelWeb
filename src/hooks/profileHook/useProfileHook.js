@@ -63,6 +63,7 @@ export const useProfileHook = () => {
             const domBtn = event.target;
             const id = domBtn.id;
             const res = await cancelDriverTrip(id)
+            getData();
             console.log(res)
         } catch (error){
             setError(error.message || "Error de servidor");

@@ -1,5 +1,5 @@
-const API_URL = import.meta.env.REACT_VITE_API_URL;
-//const URL_PATH = 'https://api.moveandgo.com.mx'
+//const API_URL = import.meta.env.REACT_VITE_API_URL;
+const URL_PATH = 'https://api.moveandgo.com.mx'
 
 export const registerUserData = async (data) => {
     const res = await fetch(`${API_URL}/register`, {

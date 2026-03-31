@@ -1,5 +1,5 @@
-const API_URL = import.meta.env.REACT_VITE_API_URL;
-//const API_ROUTE = "https://api.moveandgo.com.mx";
+//const API_URL = import.meta.env.REACT_VITE_API_URL;
+const API_ROUTE = "https://api.moveandgo.com.mx";
 
 export const carList = async () => {
     const reponse = await fetch(`${API_URL}/driver/listCars`, {

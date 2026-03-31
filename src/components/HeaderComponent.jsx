@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react';
 
 export const HeaderComponent = ({}) => {
     const navigate = useNavigate();
-    const API_URL = import.meta.env.VITE_API_URL;
-    const return_url_inicio = import.meta.env.RETURN_URL;
+    const API_URL = import.meta.env.REACT_VITE_API_URL;
     const [userInfo, setInfo] = useState({ username: '', image: null })
 
     const showUserOptions = (event) => {

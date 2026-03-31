@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import '../styles/stripeConnect.css';
 
 export const StripeConnect = ({ }) => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.REACT_VITE_API_URL;
     //const URL_PATH = `https://api.moveandgo.com.mx`
     const connectStripe = async() =>{
         try {

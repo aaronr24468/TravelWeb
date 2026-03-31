@@ -3,14 +3,15 @@ import { useNavigate } from "react-router"
 
 export const CheckAuth = ({ children }) => {
     const navigate = useNavigate();
-    const URL_PATH = `https://api.moveandgo.com.mx`
+    const API_URL = import.meta.env.VITE_API_URL;
+    //const URL_PATH = `https://api.moveandgo.com.mx`
     const [loading, setLoading] = useState(true);
     const [isAuth, setIsAuth] = useState(false)
 
     const authCheck = useCallback(async () => {
         try {
 
-            const resAuth = await fetch(`${URL_PATH}/auth/checkAccount`, {
+            const resAuth = await fetch(`${API_URL}/auth/checkAccount`, {
                 method: "GET",
                 credentials: 'include',
                 headers: {

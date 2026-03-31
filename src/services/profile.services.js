@@ -1,8 +1,9 @@
-const URL_PATH = 'https://api.moveandgo.com.mx'
+const API_URL = import.meta.env.VITE_API_URL;
+//const URL_PATH = 'https://api.moveandgo.com.mx'
 
 export const getDataProfile = async() =>{
     
-    const dataProfile = await fetch(`${URL_PATH}/auth/getDataUser/profile`,{
+    const dataProfile = await fetch(`${API_URL}/auth/getDataUser/profile`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -16,7 +17,7 @@ export const getDataProfile = async() =>{
 
 export const setIdStripe = async(data) =>{
     
-    const idStripe = await fetch(`${URL_PATH}/v1/travel/setIdStripe`,{
+    const idStripe = await fetch(`${API_URL}/v1/travel/setIdStripe`,{
         method: "POST",
         credentials: 'include',
         headers:{
@@ -29,7 +30,7 @@ export const setIdStripe = async(data) =>{
 };
 
 export const geMyTrips = async() =>{
-    const myTrips = await fetch(`${URL_PATH}/driver/getDriver/travelsList`,{
+    const myTrips = await fetch(`${API_URL}/driver/getDriver/travelsList`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -42,7 +43,7 @@ export const geMyTrips = async() =>{
 
 export const finishTripApi = async(id) =>{
     
-    const resTripFinish = await fetch(`${URL_PATH}/driver/accomplisedTravel`,{
+    const resTripFinish = await fetch(`${API_URL}/driver/accomplisedTravel`,{
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -55,7 +56,7 @@ export const finishTripApi = async(id) =>{
 }
 
 export const verifyDriverOnboarded = async() =>{
-    const result = await fetch(`${URL_PATH}/stripe/verifyStripeAccount`,{
+    const result = await fetch(`${API_URL}/stripe/verifyStripeAccount`,{
         method: "GET",
         credentials: 'include',
         headers:{
@@ -67,7 +68,7 @@ export const verifyDriverOnboarded = async() =>{
 }
 
 export const earningsLink = async() =>{
-    const url = await fetch(`${URL_PATH}/stripe/earnings`,{
+    const url = await fetch(`${API_URL}/stripe/earnings`,{
         method: 'GET',
         credentials: "include",
         headers:{
@@ -79,7 +80,7 @@ export const earningsLink = async() =>{
 }
 
 export const cancelDriverTrip = async(id_Travel) =>{
-    const res = await fetch(`${URL_PATH}/driver/cancelTravel`,{
+    const res = await fetch(`${API_URL}/driver/cancelTravel`,{
         method: "PUT",
         credentials: 'include',
         headers:{
@@ -91,7 +92,7 @@ export const cancelDriverTrip = async(id_Travel) =>{
 }
 
 export const getListUserReservation = async(id) =>{
-    const list = await fetch(`${URL_PATH}/driver/list/users/reservation/${id}`,{
+    const list = await fetch(`${API_URL}/driver/list/users/reservation/${id}`,{
         method: 'GET',
         credentials: 'include',
         headers:{
@@ -103,7 +104,7 @@ export const getListUserReservation = async(id) =>{
 }
 
 export const inPorgress = async(id) =>{
-    const result = await fetch(`${URL_PATH}/driver/trip/progress/${id}`,{
+    const result = await fetch(`${API_URL}/driver/trip/progress/${id}`,{
         method: 'put',
         credentials: 'include',
         headers:{

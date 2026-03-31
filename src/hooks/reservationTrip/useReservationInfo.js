@@ -46,6 +46,8 @@ export const useTripReservation = () =>{
                 amount: amount,
             }
             const response = await setPaymentIntent(data);
+
+            console.log(response)
            
             if(response.ok === false) return setError(response.message)
 

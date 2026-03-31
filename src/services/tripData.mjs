@@ -1,4 +1,5 @@
-const API_URL = 'https://api.moveandgo.com.mx';
+const API_URL = import.meta.env.VITE_API_URL;
+//const API_URL = 'https://api.moveandgo.com.mx';
 
 export const getDataTripSelected = async(id) =>{
     const trip = await fetch(`${API_URL}/trip/getTrip/information/${id}`,{

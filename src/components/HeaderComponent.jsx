@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 
 export const HeaderComponent = ({}) => {
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL;
+    const return_url_inicio = import.meta.env.RETURN_URL;
     const [userInfo, setInfo] = useState({ username: '', image: null })
 
     const showUserOptions = (event) => {
@@ -16,7 +18,7 @@ export const HeaderComponent = ({}) => {
 
     const getInfoUser = async () => {
         try {
-            const userData = await fetch(`https://api.moveandgo.com.mx/auth/getDataUser/navBar`, {
+            const userData = await fetch(`${API_URL}/auth/getDataUser/navBar`, {
                 method: 'get',
                 credentials: "include",
                 headers: {
@@ -37,7 +39,7 @@ export const HeaderComponent = ({}) => {
 
     const generateTrip = async (event) => {
         event.preventDefault();
-        const driverR = await fetch('https://api.moveandgo.com.mx/auth/verifyRol', {
+        const driverR = await fetch(`${API_URL}/auth/verifyRol`, {
             method: 'get',
             credentials: "include",
             headers: {
@@ -49,7 +51,7 @@ export const HeaderComponent = ({}) => {
     }
 
     const logOut = async () => {
-        const response = await fetch('https://api.moveandgo.com.mx/auth/logout', {
+        const response = await fetch(`${API_URL}/auth/logout`, {
             method: 'get',
             credentials: 'include',
             headers: {

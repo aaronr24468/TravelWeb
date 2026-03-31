@@ -1,4 +1,5 @@
-const API_URL = 'https://api.moveandgo.com.mx';
+const API_URL = import.meta.env.VITE_API_URL;
+//const API_URL = 'https://api.moveandgo.com.mx';
 
 export const setPaymentIntent = async(data) =>{
     const response = await fetch(`${API_URL}/stripe/payment_Intent`,{

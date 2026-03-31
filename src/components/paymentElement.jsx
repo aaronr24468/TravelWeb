@@ -14,7 +14,7 @@ const CheckoutForm = ({setError}) => {
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: 'https://www.moveandgo.com.mx/move&go/paymentStatus/'
+                return_url: `https://www.moveandgo.com.mx/move&go/paymentStatus/`
             },
             
         });

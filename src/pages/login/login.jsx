@@ -24,20 +24,20 @@ export const LoginComponent = ({ }) => {
         login(data);
     }
 
-    const checkAccount = useCallback(async () => {
-        const response = await fetch('https://api.moveandgo.com.mx/v1/travel/checkAccount', {
-            method: 'get',
-            credentials: 'include',
-            headers: {
-                "Content-Type": "Application/json",
-            }
-        }).then((res) => res.json());
-        response.ok ? navigate('/move&go') : '';
-    }, [])
+    // const checkAccount = useCallback(async () => {
+    //     const response = await fetch('https://api.moveandgo.com.mx/v1/travel/checkAccount', {
+    //         method: 'get',
+    //         credentials: 'include',
+    //         headers: {
+    //             "Content-Type": "Application/json",
+    //         }
+    //     }).then((res) => res.json());
+    //     response.ok ? navigate('/move&go') : '';
+    // }, [])
 
-    useEffect(() => {
-        checkAccount();
-    }, [checkAccount])
+    // useEffect(() => {
+    //     checkAccount();
+    // }, [checkAccount])
 
 
     return (

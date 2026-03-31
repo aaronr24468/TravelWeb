@@ -2,10 +2,11 @@ import { useCallback, useEffect } from 'react';
 import '../styles/stripeConnect.css';
 
 export const StripeConnect = ({ }) => {
-    const URL_PATH = `https://api.moveandgo.com.mx`
+    const API_URL = import.meta.env.VITE_API_URL;
+    //const URL_PATH = `https://api.moveandgo.com.mx`
     const connectStripe = async() =>{
         try {
-            const result = await fetch(`${URL_PATH}/stripe/stripeConnect`,{
+            const result = await fetch(`${API_URL}/stripe/stripeConnect`,{
                 method: 'POST',
                 credentials: 'include',
                 headers:{

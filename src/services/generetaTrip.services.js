@@ -2,7 +2,7 @@
 const API_ROUTE = "https://api.moveandgo.com.mx";
 
 export const carList = async () => {
-    const reponse = await fetch(`${API_URL}/driver/listCars`, {
+    const reponse = await fetch(`${API_ROUTE}/driver/listCars`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -13,7 +13,7 @@ export const carList = async () => {
 }
 
 export const ListImagCity = async () => {
-    const response = await fetch(`${API_URL}/v1/travel/getTripImageUser`, {
+    const response = await fetch(`${API_ROUTE}/v1/travel/getTripImageUser`, {
         method: 'get',
         credentials: 'include',
         headers: {
@@ -27,7 +27,7 @@ export const ListImagCity = async () => {
 
 export const generateT = async (dataTrip) => {
 
-    const tripResponse = await fetch(`${API_URL}/driver/setTrip`, {
+    const tripResponse = await fetch(`${API_ROUTE}/driver/setTrip`, {
         method: 'post',
         credentials: 'include',
         headers: {
@@ -39,7 +39,7 @@ export const generateT = async (dataTrip) => {
 }
 
 export const ListCity = async() =>{
-    const imgCity = await fetch(`${API_URL}/driver/getCityImages`,{
+    const imgCity = await fetch(`${API_ROUTE}/driver/getCityImages`,{
         method:"get",
         credentials: 'include',
         headers:{
@@ -50,7 +50,7 @@ export const ListCity = async() =>{
 }
 
 export const registerCar = async(data) =>{
-    const resRegisterCar = await fetch(`${API_URL}/driver/register/Vehicle`,{
+    const resRegisterCar = await fetch(`${API_ROUTE}/driver/register/Vehicle`,{
         method: 'POST',
         credentials: 'include',
         headers:{
@@ -63,7 +63,7 @@ export const registerCar = async(data) =>{
 }
 
 export const uploadCarImage = async(formData, id) =>{
-    const resUploadImage = await fetch(`${API_URL}/driver/uploadImageCar/${id}`,{
+    const resUploadImage = await fetch(`${API_ROUTE}/driver/uploadImageCar/${id}`,{
         method: 'POST',
         credentials: 'include',
         body: formData
@@ -72,7 +72,7 @@ export const uploadCarImage = async(formData, id) =>{
 }
 
 export const checkRoll = async() =>{
-    const result = await fetch(`${API_URL}/auth/verifyRol`,{
+    const result = await fetch(`${API_ROUTE}/auth/verifyRol`,{
         method: 'GET',
         credentials: 'include',
         headers:{
